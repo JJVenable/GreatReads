@@ -37,9 +37,9 @@
 ### ***Screenshots:***
 CHD, ERD, Home Page, Books mapped page, ect. 
 
-![CHD](https://imgur.com/a/9TuYyda)
+![CHD](https://i.imgur.com/m3JZqpo.png)
 
-![ERD](https://imgur.com/a/JJ3ioo4)
+![ERD](https://i.imgur.com/amyOcc9.png)
 
 ![HomePage](www.PLACEHOLDER.com)
 
