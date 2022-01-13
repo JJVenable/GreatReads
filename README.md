@@ -1,6 +1,6 @@
 # Congo
-# January 2022
-# By:
+## January 2022
+## By:
 * Grant Menke, 
   * [GitHub](https://github.com/gmenke54).
   * [Linkedin](https://www.linkedin.com/in/grantmenke/).
@@ -36,6 +36,7 @@
 
 ### ***Screenshots:***
 CHD, ERD, Home Page, Books mapped page, ect. 
+
 ![CHD](https://imgur.com/a/9TuYyda)
 
 ![ERD](https://imgur.com/a/JJ3ioo4)
