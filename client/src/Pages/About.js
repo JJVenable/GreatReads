@@ -1,13 +1,13 @@
 import { connect } from 'react-redux'
 import React, { useEffect } from 'react'
 
-function AboutPage() {
-  return <div className = "about-page">
+function About() {
+  return ( <div className = "about-page">
 
-This is about, yay!
+<h1>This is about, yay!</h1>
 
 
   </div>
-}
+  )}
 
-export default connect(AboutPage)
+export default About
