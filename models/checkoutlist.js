@@ -13,8 +13,22 @@ module.exports = (sequelize, DataTypes) => {
   }
   CheckoutList.init(
     {
-      saleId: DataTypes.INTEGER,
-      bookId: DataTypes.INTEGER
+      saleId: {
+        type: DataTypes.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'sales',
+          key: 'id'
+        }
+      },
+      bookId: {
+        type: DataTypes.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'books',
+          key: 'id'
+        }
+      }
     },
     {
       sequelize,
