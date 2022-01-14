@@ -35,16 +35,46 @@ const GetSaleWithBooks = async (req, res) => {
 
 // const UpdateSale = async (req, res) => {
 //   try {
-//     let saleId = parseInt(req.params.sale_id);
-//     const sale = await Sale.update(
-//       { items: ['books'] },
-//       {
-//         where: {
-//           id: saleId
-//         }
+//     return Sale.findByPk(2).then((sale) => {
+//       if (!sale) {
+//         console.log('Sale not found!');
+//         return null;
 //       }
-//     );
-//     res.send(sale);
+//       return Book.findByPk(6).then((book) => {
+//         if (!book) {
+//           console.log('Book not found!');
+//           return null;
+//         }
+//         console.log('on line 48');
+//         sale.addBook(book);
+//         console.log(`added the book to to the sale`);
+//         return sale;
+//       });
+//     });
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+
+// const UpdateSale = async (req, res) => {
+//   try {
+//     let saleId = parseInt(req.params.sale_id);
+
+//     let sale = await Sale.findByPk(saleId);
+//     let book = await Book.findByPk(6);
+
+// BREAKS AFTER THIS
+//     sale.addBook(book);
+//     let updatedSale = await Sale.findByPk(saleId, {
+//       include: [
+//         {
+//           model: Book,
+//           as: 'items',
+//           through: { attributes: [] }
+//         }
+//       ]
+//     });
+//     res.send(updatedSale);
 //   } catch (error) {
 //     console.log(error);
 //   }
