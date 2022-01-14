@@ -9,7 +9,11 @@ import { connect } from 'react-redux';
 import React, { useEffect } from 'react';
 
 function Home() {
-  return <div className="home-page">This is the homepage, yo!</div>;
+  return (
+    <div className="home-page">
+      <p>This is the homepage, yo!</p>
+    </div>
+  );
 }
 
 export default Home;
