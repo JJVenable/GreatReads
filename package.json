@@ -1,0 +1,31 @@
+{
+  "name": "congo",
+  "version": "1.0.0",
+  "description": "* Grant Menke,    * [GitHub](https://github.com/gmenke54).   * [Linkedin](https://www.linkedin.com/in/grantmenke/). * Lieba Pil,   * [GitHub](https://github.com/liebapil).   * [Linkedin](https://www.linkedin.com/in/lieba-pil/). * Doran Smith,    * [GitHub](https://github.com/andora814).   * [Linkedin](https://www.linkedin.com/in/dorancsmith/). * Joseph Venable   * [GitHub](https://github.com/JJVenable).   * [Linkedin](https://www.linkedin.com/in/jjvenable).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JJVenable/Congo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JJVenable/Congo/issues"
+  },
+  "homepage": "https://github.com/JJVenable/Congo#readme",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "faker": "^5.5.3",
+    "nodemon": "^2.0.15",
+    "pg": "^8.7.1",
+    "sequelize": "^6.13.0"
+  }
+}
