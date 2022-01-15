@@ -1,9 +1,7 @@
-import { GET_PRODUCTS, DELETE_PRODUCT } from '../types';
-import {
-  GetProducts,
-  DeleteProductAction
-} from '../../services/ProductCardService';
+import { GET_PRODUCTS, DELETE_PRODUCT, UPDATE_PRODUCT } from '../types';
+import { GetProducts, DeleteProductService, UpdateProductService } from '../../services/ProductCardService';
 
+/// load products
 export const LoadProducts = () => {
   return async (dispatch) => {
     try {
@@ -19,10 +17,11 @@ export const LoadProducts = () => {
   };
 };
 
+// remove Product
 export const RemoveProduct = (id) => {
   return async (dispatch) => {
     try {
-      await DeleteProductAction(id);
+      await DeleteProductService(id);
       dispatch({
         type: DELETE_PRODUCT,
         payload: id
@@ -32,3 +31,17 @@ export const RemoveProduct = (id) => {
     }
   };
 };
+// update product
+export const UpdateProduct = (id, body) => {
+  return async (dispatch) => {
+    try{
+      const updatedBook = await UpdateProductService(id, body);
+      dispatch({
+        type: UPDATE_PRODUCT,
+        payload: updatedBook
+      })
+    } catch (error) {
+      throw error;
+    }
+  }
+}
