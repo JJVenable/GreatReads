@@ -21,7 +21,64 @@ const DeleteBookByID = async (req, res) => {
   }
 };
 
+const CreateBook = async (req, res) => {
+  try {
+    let bookBody = {
+      ...req.body
+    };
+    let book = await Book.create(bookBody);
+    res.send(book);
+  } catch (error) {
+    throw error;
+  }
+};
+
+const UpdateBook = async (req, res) => {
+  try {
+    let bookId = parseInt(req.params.book_id);
+    let updatedBook = await Book.update(req.body, {
+      where: { id: bookId },
+      returning: true
+    });
+    res.send(updatedBook);
+  } catch (error) {
+    throw error;
+  }
+};
+
+const GetBookByID = async (req, res) => {
+  try {
+    let bookId = parseInt(req.params.book_id);
+    const book = await Book.findByPk(bookId);
+    res.send(book);
+  } catch (error) {
+    throw error;
+  }
+};
+
+const GetBookWithSales = async (req, res) => {
+  try {
+    let bookId = parseInt(req.params.book_id);
+    const book = await Book.findByPk(bookId, {
+      include: [
+        {
+          model: Sale,
+          as: 'sales',
+          through: { attributes: [] }
+        }
+      ]
+    });
+    res.send(book);
+  } catch (error) {
+    throw error;
+  }
+};
+
 module.exports = {
   GetAllBooks,
-  DeleteBookByID
+  DeleteBookByID,
+  CreateBook,
+  UpdateBook,
+  GetBookByID,
+  GetBookWithSales
 };
