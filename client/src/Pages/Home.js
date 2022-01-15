@@ -4,14 +4,18 @@ import ProductCard from '../components/ProductCard';
 import { connect } from 'react-redux';
 import React, { useEffect, useState } from 'react';
 import { LoadProducts } from '../store/actions/ProductCardActions';
+import { CreateSaleAction } from '../store/actions/SaleAction';
 
-const mapStateToProps = ({ productCardState }) => {
-  return { productCardState };
+
+const mapStateToProps = ({ productCardState, saleState }) => {
+  return { productCardState, saleState };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchProducts: () => dispatch(LoadProducts())
+    fetchProducts: () => dispatch(LoadProducts()),
+    // pass something in if 1 isn't hardcoded in saleAction.js
+    postSale: () => dispatch(CreateSaleAction())
   };
 };
 
@@ -20,10 +24,16 @@ const Home = (props) => {
     props.fetchProducts();
   }, []);
 
+const beginSale = () => {
+  console.log("Another Sale started!")
+  props.postSale();
+}
+
   return (
     <div className="home-page">
       <div>Order</div>
-      {/* <NewSaleCard /> */}
+      <button onClick={beginSale}>Begin Sale Transaction</button>
+      <NewSaleCard />
       <div className="product-cont">
         {props.productCardState.products.map((product) => (
           <ProductCard product={product} />

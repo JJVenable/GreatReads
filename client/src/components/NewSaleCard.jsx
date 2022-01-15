@@ -1,12 +1,24 @@
 import { connect } from 'react-redux';
 import React, { useEffect } from 'react';
 
-function NewSaleCard() {
+
+const mapStateToProps = ({ saleState }) => {
+  return { saleState };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    
+  };
+};
+
+
+function NewSaleCard(props) {
   return (
     <div className="new-sale-card">
-      <p>You have made it to the new sale card!</p>
+      <p>Sale #{props.saleState.currentSale.id}</p>
     </div>
   );
 }
 
-export default NewSaleCard;
+export default connect(mapStateToProps, mapDispatchToProps)(NewSaleCard);
