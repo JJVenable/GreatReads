@@ -9,3 +9,11 @@ export const GetProducts = async () => {
     throw error;
   }
 };
+
+export const DeleteProductAction = async (id) => {
+  try {
+    await client.delete(`/books/delete/${id}`);
+  } catch (error) {
+    throw error;
+  }
+};
