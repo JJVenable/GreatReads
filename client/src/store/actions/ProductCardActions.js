@@ -1,6 +1,7 @@
 import { GET_PRODUCTS, DELETE_PRODUCT, UPDATE_PRODUCT } from '../types';
 import { GetProducts, DeleteProductService, UpdateProductService } from '../../services/ProductCardService';
 
+/// load products
 export const LoadProducts = () => {
   return async (dispatch) => {
     try {
@@ -16,6 +17,7 @@ export const LoadProducts = () => {
   };
 };
 
+// remove Product
 export const RemoveProduct = (id) => {
   return async (dispatch) => {
     try {
@@ -29,7 +31,7 @@ export const RemoveProduct = (id) => {
     }
   };
 };
-
+// update product
 export const UpdateProduct = (id, body) => {
   return async (dispatch) => {
     try{

@@ -1,4 +1,4 @@
-import { GET_PRODUCTS, DELETE_PRODUCT } from '../types';
+import { GET_PRODUCTS, DELETE_PRODUCT, UPDATE_PRODUCT } from '../types';
 
 const iState = {
   products: []
@@ -6,13 +6,11 @@ const iState = {
 
 const ProductCardReducer = (state = iState, action) => {
   switch (action.type) {
+    //////////////////////
     case GET_PRODUCTS:
       return { ...state, products: action.payload };
+    //////////////////////
     case DELETE_PRODUCT:
-      // console.log(state.products);
-      // let adjustedProducts = state.products.filter(
-      //   (product, id) => id !== action.payload
-      // );
       let adjustedProducts = state.products;
       console.log(adjustedProducts);
       let targetIndex = {};
@@ -24,7 +22,12 @@ const ProductCardReducer = (state = iState, action) => {
       adjustedProducts.splice(targetIndex, 1);
       console.log(adjustedProducts);
       return { ...state, products: adjustedProducts };
-
+    //////////////////////
+    case UPDATE_PRODUCT:
+      let updatedProducts = state.products;
+      console.log(updatedProducts)
+      return { ...state }
+    //////////////////////
     default:
       return { ...state };
   }
