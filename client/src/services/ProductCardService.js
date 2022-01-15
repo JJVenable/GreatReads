@@ -12,7 +12,7 @@ export const GetProducts = async () => {
 };
 
 /// delete book by id
-export const DeleteProductAction = async (id) => {
+export const DeleteProductService = async (id) => {
   try {
     await client.delete(`/books/delete/${id}`);
   } catch (error) {
