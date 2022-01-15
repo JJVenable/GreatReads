@@ -51,8 +51,19 @@ const GetSales = async (req, res) => {
   }
 };
 
+const DeleteSale = async (req, res) => {
+  try {
+    let saleId = parseInt(req.params.sale_id);
+    await Sale.destroy({ where: { id: saleId } });
+    res.send({ message: `Deleted sale with an id of ${saleId}` });
+  } catch (error) {
+    throw error;
+  }
+};
+
 module.exports = {
   CreateSale,
   GetSaleWithBooks,
-  GetSales
+  GetSales,
+  DeleteSale
 };
