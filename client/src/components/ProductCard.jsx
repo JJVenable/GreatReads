@@ -1,6 +1,17 @@
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 import '../styling/ProductCard.css'
 import React, { useEffect } from 'react';
+import { RemoveProduct } from '../store/actions/ProductCardActions';
+
+const mapStateToProps = ({ productCardState }) => {
+  return { productCardState };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    deleteProduct: (id) => dispatch(RemoveProduct(id))
+  };
+};
 
 function ProductCard(props) {
   let price = (props.product.price * .01).toFixed(2)
@@ -9,6 +20,10 @@ function ProductCard(props) {
     console.log('added to sale!')
   }
 
+  const delProduct = (id) => {
+    console.log('delete button clicked');
+    props.deleteProduct(id)
+  }
   return (
     <div className="product-card">
       <img className='card-img' src={props.product.image} />
@@ -19,9 +34,10 @@ function ProductCard(props) {
       <div className='buy-line'>
         <div className='card-quantity'>Only {props.product.inventory} left in stock.</div>
         <button onClick={buyProduct}>Buy Now!</button>
+        <button onClick={()=>delProduct(props.product.id)}>Remove Product</button>
       </div>
     </div>
   );
 }
 
-export default ProductCard;
+export default connect(mapStateToProps, mapDispatchToProps)(ProductCard);
