@@ -56,10 +56,29 @@ const GetBookByID = async (req, res) => {
   }
 };
 
+const GetBookWithSales = async (req, res) => {
+  try {
+    let bookId = parseInt(req.params.book_id);
+    const book = await Book.findByPk(bookId, {
+      include: [
+        {
+          model: Sale,
+          as: 'sales',
+          through: { attributes: [] }
+        }
+      ]
+    });
+    res.send(book);
+  } catch (error) {
+    throw error;
+  }
+};
+
 module.exports = {
   GetAllBooks,
   DeleteBookByID,
   CreateBook,
   UpdateBook,
-  GetBookByID
+  GetBookByID,
+  GetBookWithSales
 };
