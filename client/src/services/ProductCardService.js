@@ -17,3 +17,11 @@ export const DeleteProductAction = async (id) => {
     throw error;
   }
 };
+
+export const UpdateProductService = async (id,body) => {
+  try {
+    await client.put(`/books/update/${id}`);
+  } catch (error) {
+    throw error;
+  }
+};
