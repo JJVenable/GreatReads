@@ -22,7 +22,7 @@ const ProductCardReducer = (state = iState, action) => {
       adjustedProducts.splice(targetIndex, 1);
       console.log(adjustedProducts);
       return { ...state, products: adjustedProducts };
-    ////////////////////// not finished below -jv
+    ////////////////////// 
     case UPDATE_PRODUCT:
       let updatedProducts = state.products;
       console.log(updatedProducts)
