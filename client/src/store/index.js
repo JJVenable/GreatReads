@@ -1,15 +1,13 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import ProductCardReducer from './reducers/ProductCardReducer';
-import NewSaleCardReducer from './reducers/NewSaleCardReducer';
-import ProductLineReducer from './reducers/ProductLineReducer';
+// import SaleReducer from './reducers/SaleReducer';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 const store = createStore(
   combineReducers({
-    productCardState: ProductCardReducer,
-    newSaleCardState: NewSaleCardReducer,
-    productLineState: ProductLineReducer
+    productCardState: ProductCardReducer
+    // saleState: SaleReducer
   }),
   composeWithDevTools(applyMiddleware(thunk))
 );

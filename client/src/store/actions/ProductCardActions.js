@@ -1,14 +1,14 @@
-import { GET_PRODUCT_CARDS } from '../types';
-import { GetProductCards } from '../services/ProductCardService';
+import { GET_PRODUCTS } from '../types';
+import { GetProducts } from '../../services/ProductCardService';
 
-export const LoadProductCards = () => {
+export const LoadProducts = () => {
   return async (dispatch) => {
     try {
-      const productCards = await GetProductCards();
-      console.log(productCards);
+      const products = await GetProducts();
+      console.log(products);
       dispatch({
-        type: GET_PRODUCT_CARDS,
-        payload: productCards
+        type: GET_PRODUCTS,
+        payload: products
       });
     } catch (error) {
       throw error;

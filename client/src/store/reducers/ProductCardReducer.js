@@ -1,16 +1,16 @@
-import { GET_PRODUCT_CARDS } from '../types';
+import { GET_PRODUCTS } from '../types';
 
-const initialState = {
+const iState = {
   products: []
 };
 
-const GetProductCardReducer = (state = initialState, action) => {
+const ProductCardReducer = (state = iState, action) => {
   switch (action.type) {
-    case GET_PRODUCT_CARDS:
+    case GET_PRODUCTS:
       return { ...state, products: action.payload };
     default:
       return { ...state };
   }
 };
 
-export default GetProductCardReducer;
+export default ProductCardReducer;

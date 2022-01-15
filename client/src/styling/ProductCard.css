@@ -1,0 +1,32 @@
+.card-img {
+  height: 150px;
+}
+
+.card-quantity {
+  font-size: 15px;
+}
+
+.card-price {
+  color: rgb(153, 19, 19);
+}
+
+.card-name {
+  font-size: 20px;
+}
+
+.card-rating {
+  height: 12px;
+}
+
+.product-card {
+  border: 0.8px solid lightgrey;
+  padding: 8px;
+  width: 250px;
+}
+
+.product-cont {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
