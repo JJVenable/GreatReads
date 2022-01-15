@@ -21,7 +21,20 @@ const DeleteBookByID = async (req, res) => {
   }
 };
 
+const CreateBook = async (req, res) => {
+  try {
+    let bookBody = {
+      ...req.body
+    };
+    let book = await Book.create(bookBody);
+    res.send(book);
+  } catch (error) {
+    throw error;
+  }
+};
+
 module.exports = {
   GetAllBooks,
-  DeleteBookByID
+  DeleteBookByID,
+  CreateBook
 };

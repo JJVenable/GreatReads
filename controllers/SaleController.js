@@ -35,6 +35,18 @@ const GetSaleWithBooks = async (req, res) => {
 
 // const UpdateSale = async (req, res) => {
 //   try {
+//     let body = {
+//       ...req.body
+//     };
+//     let join = await CheckoutList.create(body);
+//     res.send(join);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+
+// const UpdateSale = async (req, res) => {
+//   try {
 //     return Sale.findByPk(2).then((sale) => {
 //       if (!sale) {
 //         console.log('Sale not found!');
