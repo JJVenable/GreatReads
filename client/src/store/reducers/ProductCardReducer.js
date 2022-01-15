@@ -1,3 +1,4 @@
+import { UpdateProduct } from '../actions/ProductCardActions';
 import { GET_PRODUCTS, DELETE_PRODUCT, UPDATE_PRODUCT } from '../types';
 
 const iState = {
@@ -20,13 +21,22 @@ const ProductCardReducer = (state = iState, action) => {
         }
       });
       adjustedProducts.splice(targetIndex, 1);
-      console.log(adjustedProducts);
+      // console.log(adjustedProducts);
       return { ...state, products: adjustedProducts };
     ////////////////////// 
     case UPDATE_PRODUCT:
       let updatedProducts = state.products;
+      // console.log(updatedProducts)
+      // console.log(action.payload)
+      let targetProductIndex = {}
+      updatedProducts.map((product,index) => {
+        if(product.id === action.payload.id) {
+          targetProductIndex = index
+        }
+      })
+      updatedProducts.splice(targetProductIndex, 1, action.payload)
       console.log(updatedProducts)
-      return { ...state }
+      return { ...state, products: updatedProducts }
     //////////////////////
     default:
       return { ...state };
