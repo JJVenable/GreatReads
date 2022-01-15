@@ -33,8 +33,33 @@ const CreateBook = async (req, res) => {
   }
 };
 
+const UpdateBook = async (req, res) => {
+  try {
+    let bookId = parseInt(req.params.book_id);
+    let updatedBook = await Book.update(req.body, {
+      where: { id: bookId },
+      returning: true
+    });
+    res.send(updatedBook);
+  } catch (error) {
+    throw error;
+  }
+};
+
+const GetBookByID = async (req, res) => {
+  try {
+    let bookId = parseInt(req.params.book_id);
+    const book = await Book.findByPk(bookId);
+    res.send(book);
+  } catch (error) {
+    throw error;
+  }
+};
+
 module.exports = {
   GetAllBooks,
   DeleteBookByID,
-  CreateBook
+  CreateBook,
+  UpdateBook,
+  GetBookByID
 };

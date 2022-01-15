@@ -33,67 +33,26 @@ const GetSaleWithBooks = async (req, res) => {
   }
 };
 
-// const UpdateSale = async (req, res) => {
-//   try {
-//     let body = {
-//       ...req.body
-//     };
-//     let join = await CheckoutList.create(body);
-//     res.send(join);
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-
-// const UpdateSale = async (req, res) => {
-//   try {
-//     return Sale.findByPk(2).then((sale) => {
-//       if (!sale) {
-//         console.log('Sale not found!');
-//         return null;
-//       }
-//       return Book.findByPk(6).then((book) => {
-//         if (!book) {
-//           console.log('Book not found!');
-//           return null;
-//         }
-//         console.log('on line 48');
-//         sale.addBook(book);
-//         console.log(`added the book to to the sale`);
-//         return sale;
-//       });
-//     });
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-
-// const UpdateSale = async (req, res) => {
-//   try {
-//     let saleId = parseInt(req.params.sale_id);
-
-//     let sale = await Sale.findByPk(saleId);
-//     let book = await Book.findByPk(6);
-
-// BREAKS AFTER THIS
-//     sale.addBook(book);
-//     let updatedSale = await Sale.findByPk(saleId, {
-//       include: [
-//         {
-//           model: Book,
-//           as: 'items',
-//           through: { attributes: [] }
-//         }
-//       ]
-//     });
-//     res.send(updatedSale);
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
+const GetSales = async (req, res) => {
+  try {
+    const result = await Sale.findAll({
+      include: [
+        {
+          model: Book,
+          as: 'items',
+          through: { attributes: [] }
+        }
+      ]
+    });
+    res.send(result);
+    console.log(result);
+  } catch (error) {
+    throw error;
+  }
+};
 
 module.exports = {
   CreateSale,
-  GetSaleWithBooks
-  // UpdateSale
+  GetSaleWithBooks,
+  GetSales
 };
