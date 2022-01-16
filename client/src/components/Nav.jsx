@@ -5,13 +5,13 @@ import AddBook from './AddBooks';
 
 
 const Nav = () => {
-  return(
+  return (
     <header className="nav">
-    <nav>
-      <Link to="/">Home</Link>
-      <Link to="/about">About</Link>
-      <AddBook />
-    </nav>
+      <nav>
+        <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
+        <AddBook />
+      </nav>
     </header>
   )
 }
