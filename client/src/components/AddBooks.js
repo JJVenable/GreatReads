@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { SearchExternal } from '../store/actions/ProductCardActions';
 import SearchLine from './SearchLine';
+import '../styling/AddBook.css';
 
 const mapStateToProps = ({ productCardState }) => {
   return { productCardState };

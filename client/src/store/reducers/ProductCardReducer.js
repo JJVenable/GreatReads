@@ -47,9 +47,9 @@ const ProductCardReducer = (state = iState, action) => {
     /////////////////////
     case CREATE_BOOK:
       let newProductsList = state.products;
-      newProductsList.unshift(action.payload);
+      newProductsList.push(action.payload);
       console.log(newProductsList);
-      return { ...state };
+      return { ...state, products: newProductsList };
     default:
       return { ...state };
   }

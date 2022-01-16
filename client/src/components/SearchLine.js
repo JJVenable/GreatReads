@@ -15,22 +15,40 @@ const mapDispatchToProps = (dispatch) => {
 const SearchLine = (props) => {
   const { book } = props;
 
+  let display = false;
+  if (book.saleInfo.saleability === 'FOR_SALE') {
+    display = true;
+  }
+
   const postBook = () => {
-    console.log(book);
+    let listPrice = 8.99;
+    if (book.saleInfo.saleability === 'FOR_SALE') {
+      listPrice = book.saleInfo.listPrice.amount;
+    }
+    console.log(listPrice);
     const newBook = {
       name: book.volumeInfo.title,
-      description: book.volumeInfo.description,
+      description: 'no description',
       author: book.volumeInfo.authors[0],
-      price: 999,
+      price: listPrice,
       inventory: 10,
       image: book.volumeInfo.imageLinks.thumbnail
     };
+    console.log(newBook);
     props.addBook(newBook);
   };
 
   return (
-    <div className="searchSug" onClick={postBook}>
-      <div>{book.volumeInfo.title}</div>
+    <div>
+      {display === true ? (
+        <div className="sugCard" onClick={postBook}>
+          <img className="sugPics" src={book.volumeInfo.imageLinks.thumbnail} />
+          <div className="sug-text">
+            <div className="sug-name">{book.volumeInfo.title}</div>
+            <div className="sug-author">{book.volumeInfo.authors[0]}</div>
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 };
