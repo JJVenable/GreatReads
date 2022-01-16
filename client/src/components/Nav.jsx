@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import '../App.css';
+import AddBook from './AddBooks';
+
 
 const Nav = () => {
   return(
@@ -8,6 +10,7 @@ const Nav = () => {
     <nav>
       <Link to="/">Home</Link>
       <Link to="/about">About</Link>
+      <AddBook />
     </nav>
     </header>
   )
