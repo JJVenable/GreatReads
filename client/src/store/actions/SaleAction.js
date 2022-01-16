@@ -1,4 +1,9 @@
-import { CREATE_SALE, ADD_BOOK_TO_SALE, DISPLAY_BOOK_IN_SALE } from '../types';
+import {
+  CREATE_SALE,
+  ADD_BOOK_TO_SALE,
+  DISPLAY_BOOK_IN_SALE,
+  DISPLAY_ASSOCIATION
+} from '../types';
 import {
   CreateSaleService,
   AddBookToSaleService,
@@ -47,3 +52,8 @@ export const DisplayBookInSaleAction = (saleId) => {
     }
   };
 };
+
+export const DisplayAssociationAction = () => ({
+  type: DISPLAY_ASSOCIATION,
+  payload: true
+});

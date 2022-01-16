@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import '../styling/ProductCard.css'
 import React, { useEffect } from 'react';
 import { RemoveProduct, UpdateProduct } from '../store/actions/ProductCardActions';
-import { AddBookToSaleAction, DisplayBookInSaleAction } from '../store/actions/SaleAction';
+import { AddBookToSaleAction, DisplayBookInSaleAction, DisplayAssociationAction } from '../store/actions/SaleAction';
 
 const mapStateToProps = ({ productCardState, saleState }) => {
   return { productCardState, saleState };
@@ -13,7 +13,8 @@ const mapDispatchToProps = (dispatch) => {
     deleteProduct: (id) => dispatch(RemoveProduct(id)),
     updateProduct: (id, body) => dispatch(UpdateProduct(id, body)),
     addBookToSale: (body) => dispatch(AddBookToSaleAction(body)),
-    getSaleWithBooks:(saleId) => dispatch(DisplayBookInSaleAction(saleId))
+    getSaleWithBooks:(saleId) => dispatch(DisplayBookInSaleAction(saleId)),
+    displayAssociation: () => dispatch(DisplayAssociationAction())
   };
 };
 
@@ -33,6 +34,13 @@ function ProductCard(props) {
       },
       (onRejected) => {
         console.log('rejected')
+      }
+    ).then(
+      (onResolved) => {
+        props.displayAssociation()
+      },
+      (onRejected) => {
+        console.log('rejected display association')
       }
     )
     
