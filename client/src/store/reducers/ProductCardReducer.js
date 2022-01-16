@@ -10,6 +10,7 @@ const ProductCardReducer = (state = iState, action) => {
     //////////////////////
     case GET_PRODUCTS:
       return { ...state, products: action.payload };
+
     //////////////////////
     case DELETE_PRODUCT:
       let adjustedProducts = state.products;
@@ -21,13 +22,12 @@ const ProductCardReducer = (state = iState, action) => {
         }
       });
       adjustedProducts.splice(targetIndex, 1);
-      // console.log(adjustedProducts);
+      
       return { ...state, products: adjustedProducts };
+      
     ////////////////////// 
     case UPDATE_PRODUCT:
       let updatedProducts = state.products;
-      // console.log(updatedProducts)
-      // console.log(action.payload)
       let targetProductIndex = {}
       updatedProducts.map((product,index) => {
         if(product.id === action.payload.id) {
