@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { PostBook } from '../store/actions/ProductCardActions';
+import { PostBook, ClearBook } from '../store/actions/ProductCardActions';
 
 const mapStateToProps = ({ productCardState }) => {
   return { productCardState };
@@ -8,12 +8,13 @@ const mapStateToProps = ({ productCardState }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addBook: (body) => dispatch(PostBook(body))
+    addBook: (body) => dispatch(PostBook(body)),
+    clearBookList: () => dispatch(ClearBook())
   };
 };
 
 const SearchLine = (props) => {
-  const { book } = props;
+  const { book, setCurSearch } = props;
 
   let display = false;
   if (book.saleInfo.saleability === 'FOR_SALE') {
@@ -36,6 +37,10 @@ const SearchLine = (props) => {
     };
     console.log(newBook);
     props.addBook(newBook);
+    setCurSearch({
+      title: ``
+    });
+    props.clearBookList();
   };
 
   return (

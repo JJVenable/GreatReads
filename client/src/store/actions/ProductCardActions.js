@@ -3,7 +3,8 @@ import {
   DELETE_PRODUCT,
   UPDATE_PRODUCT,
   SEARCH_EXTERNAL,
-  CREATE_BOOK
+  CREATE_BOOK,
+  CLEAR_BOOK_SEARCH
 } from '../types';
 import {
   GetProducts,
@@ -18,7 +19,6 @@ export const LoadProducts = () => {
   return async (dispatch) => {
     try {
       const products = await GetProducts();
-      console.log(products);
       dispatch({
         type: GET_PRODUCTS,
         payload: products
@@ -87,3 +87,9 @@ export const PostBook = (body) => {
     }
   };
 };
+
+// clear book search
+export const ClearBook = () => ({
+  type: CLEAR_BOOK_SEARCH,
+  payload: []
+});
