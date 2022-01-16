@@ -7,7 +7,7 @@ import {
 
 const iState = {
   currentSale: {},
-  currentSaleWithBooks: {},
+  currentSaleWithBooks: { items: [] },
   displaySale: false
 };
 
@@ -18,7 +18,7 @@ const SaleReducer = (state = iState, action) => {
     case ADD_BOOK_TO_SALE:
       return { ...state };
     case DISPLAY_BOOK_IN_SALE:
-      console.log(action.payload);
+      // console.log(action.payload);
       return { ...state, currentSaleWithBooks: action.payload };
     case DISPLAY_ASSOCIATION:
       return { ...state, displaySale: action.payload };

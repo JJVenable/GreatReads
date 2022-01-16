@@ -24,11 +24,7 @@ const Home = (props) => {
   useEffect(() => {
     props.fetchProducts();
     console.log('running useEffect');
-    console.log(props.saleState.currentSaleWithBooks);
-    if (props.saleState.currentSaleWithBooks !== {}) {
-      display = true;
-    }
-  }, [props.saleState.displaySale]);
+  }, []);
 
   const beginSale = () => {
     console.log('Another Sale started!');
@@ -39,7 +35,9 @@ const Home = (props) => {
     <div className="home-page">
       <div>Order</div>
       <button onClick={beginSale}>Begin Sale Transaction</button>
-      <div>{display === true ? <NewSaleCard /> : null}</div>
+      <div>
+        <NewSaleCard />
+      </div>
 
       <div className="product-cont">
         {props.productCardState.products.map((product) => (

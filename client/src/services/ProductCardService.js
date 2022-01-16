@@ -5,7 +5,6 @@ import axios from 'axios';
 export const GetProducts = async () => {
   try {
     const res = await client.get('/books/all');
-    console.log(res.data);
     return res.data;
   } catch (error) {
     throw error;
@@ -25,7 +24,6 @@ export const DeleteProductService = async (id) => {
 export const UpdateProductService = async (id, body) => {
   try {
     const res = await client.put(`/books/update/${id}`, body);
-    console.log(res.data[1][0]);
     return res.data[1][0];
   } catch (error) {
     throw error;

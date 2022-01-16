@@ -21,7 +21,7 @@ export const AddBookToSaleService = async (body) => {
 export const DisplayBookInSaleService = async (saleId) => {
   try {
     const res = await client.get(`/sales/details/${saleId}`);
-    console.log(res.data);
+    // console.log(res.data);
     return res.data;
   } catch (error) {
     throw error;
