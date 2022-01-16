@@ -1,10 +1,11 @@
-import { UpdateProduct } from '../actions/ProductCardActions';
+import { UpdateProduct, ClearBook } from '../actions/ProductCardActions';
 import {
   GET_PRODUCTS,
   DELETE_PRODUCT,
   UPDATE_PRODUCT,
   SEARCH_EXTERNAL,
-  CREATE_BOOK
+  CREATE_BOOK,
+  CLEAR_BOOK_SEARCH
 } from '../types';
 
 const iState = {
@@ -50,6 +51,9 @@ const ProductCardReducer = (state = iState, action) => {
       newProductsList.push(action.payload);
       console.log(newProductsList);
       return { ...state, products: newProductsList };
+    ////////////////////
+    case CLEAR_BOOK_SEARCH:
+      return { ...state, bookResults: action.payload };
     default:
       return { ...state };
   }

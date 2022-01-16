@@ -4,3 +4,4 @@ export const CREATE_SALE = 'CREATE_SALE';
 export const UPDATE_PRODUCT = 'UPDATE_PRODUCT';
 export const SEARCH_EXTERNAL = 'SEARCH_EXTERNAL';
 export const CREATE_BOOK = 'CREATE_BOOK';
+export const CLEAR_BOOK_SEARCH = 'CLEAR_BOOK_SEARCH';

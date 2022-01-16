@@ -3,7 +3,8 @@ import {
   DELETE_PRODUCT,
   UPDATE_PRODUCT,
   SEARCH_EXTERNAL,
-  CREATE_BOOK
+  CREATE_BOOK,
+  CLEAR_BOOK_SEARCH
 } from '../types';
 import {
   GetProducts,
@@ -87,3 +88,9 @@ export const PostBook = (body) => {
     }
   };
 };
+
+// clear book search
+export const ClearBook = () => ({
+  type: CLEAR_BOOK_SEARCH,
+  payload: []
+});

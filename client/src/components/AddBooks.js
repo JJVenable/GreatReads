@@ -42,7 +42,7 @@ const AddBook = (props) => {
       />
       <div className="searchSugs">
         {props.productCardState.bookResults.map((book) => (
-          <SearchLine book={book} />
+          <SearchLine book={book} setCurSearch={setCurSearch} />
         ))}
       </div>
     </div>
