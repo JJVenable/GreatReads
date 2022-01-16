@@ -1,8 +1,15 @@
 import { UpdateProduct } from '../actions/ProductCardActions';
-import { GET_PRODUCTS, DELETE_PRODUCT, UPDATE_PRODUCT } from '../types';
+import {
+  GET_PRODUCTS,
+  DELETE_PRODUCT,
+  UPDATE_PRODUCT,
+  SEARCH_EXTERNAL,
+  CREATE_BOOK
+} from '../types';
 
 const iState = {
-  products: []
+  products: [],
+  bookResults: []
 };
 
 const ProductCardReducer = (state = iState, action) => {
@@ -21,23 +28,28 @@ const ProductCardReducer = (state = iState, action) => {
         }
       });
       adjustedProducts.splice(targetIndex, 1);
-      // console.log(adjustedProducts);
       return { ...state, products: adjustedProducts };
-    ////////////////////// 
+    //////////////////////
     case UPDATE_PRODUCT:
       let updatedProducts = state.products;
-      // console.log(updatedProducts)
-      // console.log(action.payload)
-      let targetProductIndex = {}
-      updatedProducts.map((product,index) => {
-        if(product.id === action.payload.id) {
-          targetProductIndex = index
+      let targetProductIndex = {};
+      updatedProducts.map((product, index) => {
+        if (product.id === action.payload.id) {
+          targetProductIndex = index;
         }
-      })
-      updatedProducts.splice(targetProductIndex, 1, action.payload)
-      console.log(updatedProducts)
-      return { ...state, products: updatedProducts }
+      });
+      updatedProducts.splice(targetProductIndex, 1, action.payload);
+      console.log(updatedProducts);
+      return { ...state, products: updatedProducts };
     //////////////////////
+    case SEARCH_EXTERNAL:
+      return { ...state, bookResults: action.payload };
+    /////////////////////
+    case CREATE_BOOK:
+      let newProductsList = state.products;
+      newProductsList.unshift(action.payload);
+      console.log(newProductsList);
+      return { ...state };
     default:
       return { ...state };
   }
