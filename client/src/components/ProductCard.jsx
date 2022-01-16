@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import '../styling/ProductCard.css'
 import React, { useEffect } from 'react';
 import { RemoveProduct, UpdateProduct } from '../store/actions/ProductCardActions';
-import { AddBookToSaleAction } from '../store/actions/SaleAction';
+import { AddBookToSaleAction, DisplayBookInSaleAction } from '../store/actions/SaleAction';
 
 const mapStateToProps = ({ productCardState, saleState }) => {
   return { productCardState, saleState };
@@ -12,7 +12,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     deleteProduct: (id) => dispatch(RemoveProduct(id)),
     updateProduct: (id, body) => dispatch(UpdateProduct(id, body)),
-    addBookToSale: (body) => dispatch(AddBookToSaleAction(body))
+    addBookToSale: (body) => dispatch(AddBookToSaleAction(body)),
+    getSaleWithBooks:(saleId) => dispatch(DisplayBookInSaleAction(saleId))
   };
 };
 
@@ -20,17 +21,21 @@ function ProductCard(props) {
   // let price = (props.product.price * .01).toFixed(2)
 /// buy product/ reduce inventory
   const buyProduct = (id) => {
-    // console.log('added to sale!')
-    // console.log(props.product.inventory)
     const newInventoryCount = props.product.inventory - 1 
     const newBody = {"inventory" : newInventoryCount}
     props.updateProduct(id, newBody)
-    console.log(props.saleState.currentSale.id)
-    console.log(id)
     props.addBookToSale({
       saleId: props.saleState.currentSale.id,
       bookId: id
-    })
+    }).then(
+      (onResolved) => {
+        props.getSaleWithBooks(props.saleState.currentSale.id)
+      },
+      (onRejected) => {
+        console.log('rejected')
+      }
+    )
+    
   }
 
 //// delete Product 
@@ -49,7 +54,6 @@ function ProductCard(props) {
         <div className='card-quantity'>Only {props.product.inventory} left in stock.</div>
         <button onClick={()=>buyProduct(props.product.id)}>Buy Now!</button>
         <button onClick={()=>delProduct(props.product.id)}>Remove Product</button>
-
       </div>
     </div>
   );

@@ -17,3 +17,13 @@ export const AddBookToSaleService = async (body) => {
     throw error;
   }
 };
+
+export const DisplayBookInSaleService = async (saleId) => {
+  try {
+    const res = await client.get(`/sales/details/${saleId}`);
+    console.log(res.data);
+    return res.data;
+  } catch (error) {
+    throw error;
+  }
+};

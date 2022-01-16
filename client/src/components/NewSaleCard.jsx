@@ -8,15 +8,18 @@ const mapStateToProps = ({ saleState }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    
+  
   };
 };
 
 
 function NewSaleCard(props) {
+
+
   return (
     <div className="new-sale-card">
       <p>Sale #{props.saleState.currentSale.id}</p>
+      
     </div>
   );
 }
