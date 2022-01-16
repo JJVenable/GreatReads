@@ -2,15 +2,17 @@ import { connect } from 'react-redux';
 import '../styling/ProductCard.css'
 import React, { useEffect } from 'react';
 import { RemoveProduct, UpdateProduct } from '../store/actions/ProductCardActions';
+import { AddBookToSaleAction } from '../store/actions/SaleAction';
 
-const mapStateToProps = ({ productCardState }) => {
-  return { productCardState };
+const mapStateToProps = ({ productCardState, saleState }) => {
+  return { productCardState, saleState };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     deleteProduct: (id) => dispatch(RemoveProduct(id)),
-    updateProduct: (id, body) => dispatch(UpdateProduct(id, body))
+    updateProduct: (id, body) => dispatch(UpdateProduct(id, body)),
+    addBookToSale: (body) => dispatch(AddBookToSaleAction(body))
   };
 };
 
@@ -18,11 +20,17 @@ function ProductCard(props) {
   // let price = (props.product.price * .01).toFixed(2)
 /// buy product/ reduce inventory
   const buyProduct = (id) => {
-    console.log('added to sale!')
-    console.log(props.product.inventory)
+    // console.log('added to sale!')
+    // console.log(props.product.inventory)
     const newInventoryCount = props.product.inventory - 1 
     const newBody = {"inventory" : newInventoryCount}
     props.updateProduct(id, newBody)
+    console.log(props.saleState.currentSale.id)
+    console.log(id)
+    props.addBookToSale({
+      saleId: props.saleState.currentSale.id,
+      bookId: id
+    })
   }
 
 //// delete Product 
