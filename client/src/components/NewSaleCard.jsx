@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
+
 import React, { useEffect } from 'react';
 import ProductLine from './ProductLine';
+
 
 
 const mapStateToProps = ({ saleState }) => {
