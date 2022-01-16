@@ -6,7 +6,6 @@ import React, { useEffect, useState } from 'react';
 import { LoadProducts } from '../store/actions/ProductCardActions';
 import { CreateSaleAction } from '../store/actions/SaleAction';
 
-
 const mapStateToProps = ({ productCardState, saleState }) => {
   return { productCardState, saleState };
 };
@@ -20,20 +19,26 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 const Home = (props) => {
+  let display = false;
+
   useEffect(() => {
     props.fetchProducts();
+    console.log('running useEffect');
   }, []);
 
-const beginSale = () => {
-  console.log("Another Sale started!")
-  props.postSale();
-}
+  const beginSale = () => {
+    console.log('Another Sale started!');
+    props.postSale();
+  };
 
   return (
     <div className="home-page">
       <div>Order</div>
       <button onClick={beginSale}>Begin Sale Transaction</button>
-      <NewSaleCard />
+      <div>
+        <NewSaleCard />
+      </div>
+
       <div className="product-cont">
         {props.productCardState.products.map((product) => (
           <ProductCard product={product} />

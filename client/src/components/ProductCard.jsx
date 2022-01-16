@@ -2,15 +2,19 @@ import { connect } from 'react-redux';
 import '../styling/ProductCard.css'
 import React, { useEffect } from 'react';
 import { RemoveProduct, UpdateProduct } from '../store/actions/ProductCardActions';
+import { AddBookToSaleAction, DisplayBookInSaleAction, DisplayAssociationAction } from '../store/actions/SaleAction';
 
-const mapStateToProps = ({ productCardState }) => {
-  return { productCardState };
+const mapStateToProps = ({ productCardState, saleState }) => {
+  return { productCardState, saleState };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     deleteProduct: (id) => dispatch(RemoveProduct(id)),
-    updateProduct: (id, body) => dispatch(UpdateProduct(id, body))
+    updateProduct: (id, body) => dispatch(UpdateProduct(id, body)),
+    addBookToSale: (body) => dispatch(AddBookToSaleAction(body)),
+    getSaleWithBooks:(saleId) => dispatch(DisplayBookInSaleAction(saleId)),
+    displayAssociation: () => dispatch(DisplayAssociationAction())
   };
 };
 
@@ -18,11 +22,28 @@ function ProductCard(props) {
   // let price = (props.product.price * .01).toFixed(2)
 /// buy product/ reduce inventory
   const buyProduct = (id) => {
-    console.log('added to sale!')
-    console.log(props.product.inventory)
     const newInventoryCount = props.product.inventory - 1 
     const newBody = {"inventory" : newInventoryCount}
     props.updateProduct(id, newBody)
+    props.addBookToSale({
+      saleId: props.saleState.currentSale.id,
+      bookId: id
+    }).then(
+      (onResolved) => {
+        props.getSaleWithBooks(props.saleState.currentSale.id)
+      },
+      (onRejected) => {
+        console.log('rejected')
+      }
+    ).then(
+      (onResolved) => {
+        props.displayAssociation()
+      },
+      (onRejected) => {
+        console.log('rejected display association')
+      }
+    )
+    
   }
 
 //// delete Product 
@@ -41,7 +62,6 @@ function ProductCard(props) {
         <div className='card-quantity'>Only {props.product.inventory} left in stock.</div>
         <button onClick={()=>buyProduct(props.product.id)}>Buy Now!</button>
         <button onClick={()=>delProduct(props.product.id)}>Remove Product</button>
-
       </div>
     </div>
   );
