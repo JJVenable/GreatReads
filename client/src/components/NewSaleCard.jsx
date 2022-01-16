@@ -11,7 +11,7 @@ const mapStateToProps = ({ saleState }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-  
+
   };
 };
 
@@ -23,8 +23,8 @@ function NewSaleCard(props) {
     <div className="new-sale-card">
       <p>Sale #{props.saleState.currentSale.id}</p>
       {props.saleState.currentSaleWithBooks.items.map((product) => (
-          <ProductLine product={product} />
-        ))}
+        <ProductLine product={product} />
+      ))}
     </div>
   );
 }
