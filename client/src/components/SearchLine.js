@@ -22,11 +22,6 @@ const SearchLine = (props) => {
   }
 
   const postBook = () => {
-    // let listPrice = 8.99;
-    // if (book.saleInfo.saleability === 'FOR_SALE') {
-    //   listPrice = book.saleInfo.listPrice.amount;
-    // }
-    // console.log(listPrice);
     const newBook = {
       name: book.volumeInfo.title,
       description: book.volumeInfo.description,
