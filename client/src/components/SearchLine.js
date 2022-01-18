@@ -22,18 +22,24 @@ const SearchLine = (props) => {
   }
 
   const postBook = () => {
-    let listPrice = 8.99;
-    if (book.saleInfo.saleability === 'FOR_SALE') {
-      listPrice = book.saleInfo.listPrice.amount;
-    }
-    console.log(listPrice);
     const newBook = {
       name: book.volumeInfo.title,
-      description: 'no description',
+      description: book.volumeInfo.description,
       author: book.volumeInfo.authors[0],
-      price: listPrice,
+      price: book.saleInfo.listPrice.amount,
       inventory: 10,
-      image: book.volumeInfo.imageLinks.thumbnail
+      image: book.volumeInfo.imageLinks.thumbnail,
+      pageCount: book.volumeInfo.pageCount,
+      publisher: book.volumeInfo.publisher,
+      publishedDate: book.volumeInfo.publishedDate,
+      apiId: book.id,
+      categories: book.volumeInfo.categories,
+      averageRating: book.volumeInfo.averageRating,
+      ratingsCount: book.volumeInfo.ratingsCount,
+      infoLink: book.volumeInfo.infoLink,
+      textSnippet: book.searchInfo.textSnippet,
+      maturityRating: book.volumeInfo.maturityRating,
+      publicDomain: book.accessInfo.publicDomain
     };
     console.log(newBook);
     props.addBook(newBook);

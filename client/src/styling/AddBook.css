@@ -50,3 +50,19 @@
   font-size: 16.5px;
   font-weight: 600;
 }
+
+.inactive,
+.active {
+  padding: 4px;
+}
+
+i {
+  background-color: rgb(255, 230, 0);
+  padding: 6px 10px 6px 10px;
+  border-radius: 0 5px 5px 0;
+  color: #424242;
+}
+
+dept {
+  border-radius: 5px 0 0 5px;
+}

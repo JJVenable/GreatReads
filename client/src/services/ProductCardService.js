@@ -34,7 +34,7 @@ export const UpdateProductService = async (id, body) => {
 export const SearchExternalService = async (title) => {
   try {
     const res = await axios.get(
-      `https://www.googleapis.com/books/v1/volumes?q=${title}`
+      `https://www.googleapis.com/books/v1/volumes?q=${title}&maxResults=30`
     );
     console.log(res.data.items);
     return res.data.items;
