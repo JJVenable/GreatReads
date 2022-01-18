@@ -58,8 +58,6 @@ CHD, ERD, Home Page, Books mapped page, ect.
 [Then()](https://www.geeksforgeeks.org/why-we-use-then-method-in-javascript/#:~:text=The%20then()%20method%20in,the%20code%20difficult%20to%20maintain.) syntax used in ProductCard.jsx.
 
 
-
-
 ---
 #####  END OF README.MD
 ---

@@ -4,6 +4,7 @@ import React, { useEffect } from 'react';
 import { RemoveProduct, UpdateProduct } from '../store/actions/ProductCardActions';
 import { AddBookToSaleAction, DisplayBookInSaleAction, DisplayAssociationAction } from '../store/actions/SaleAction';
 
+
 const mapStateToProps = ({ productCardState, saleState }) => {
   return { productCardState, saleState };
 };
