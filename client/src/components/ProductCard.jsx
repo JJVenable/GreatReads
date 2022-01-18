@@ -24,6 +24,7 @@ function ProductCard(props) {
   const buyProduct = (id) => {
     const newInventoryCount = props.product.inventory - 1
     const newBody = { "inventory": newInventoryCount }
+    console.log(props.productCardState.id)
     props.updateProduct(id, newBody)
     props.addBookToSale({
       saleId: props.saleState.currentSale.id,
@@ -53,7 +54,7 @@ function ProductCard(props) {
   }
   return (
     <div className="product-card">
-      <img className='card-img' src={props.product.image} />
+      <img className='card-img' src={props.product.image} onClick={props.onClick}/>
       <div className='card-name'>{props.product.name}</div>
       <div className='card-author'>by {props.product.author}</div>
       <div className='card-price'>${props.product.price}</div>
