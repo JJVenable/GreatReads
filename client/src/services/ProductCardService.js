@@ -36,8 +36,13 @@ export const SearchExternalService = async (title) => {
     const res = await axios.get(
       `https://www.googleapis.com/books/v1/volumes?q=${title}&maxResults=30`
     );
-    console.log(res.data.items);
-    return res.data.items;
+    if (res.data.totalItems !== 0) {
+      console.log(res.data.items);
+      return res.data.items;
+    } else {
+      console.log('no results');
+      return [];
+    }
   } catch (error) {
     throw error;
   }

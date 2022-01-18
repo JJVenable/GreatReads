@@ -53,10 +53,10 @@ const SearchLine = (props) => {
     <div>
       {display === true ? (
         <div className="sugCard" onClick={postBook}>
-          <img className="sugPics" src={book.volumeInfo.imageLinks.thumbnail} />
+          {/* <img className="sugPics" src={book.volumeInfo.imageLinks.thumbnail} /> */}
           <div className="sug-text">
             <div className="sug-name">{book.volumeInfo.title}</div>
-            <div className="sug-author">{book.volumeInfo.authors[0]}</div>
+            {/* <div className="sug-author">{book.volumeInfo.authors[0]}</div> */}
           </div>
         </div>
       ) : null}
