@@ -34,7 +34,7 @@ const Home = (props) => {
   return (
     <div className="home-page">
       <div></div>
-      <button onClick={beginSale}>Make New Favorites list</button>
+      <button onClick={beginSale}>Make Suggestion List</button>
       <div>
         <NewSaleCard />
       </div>
