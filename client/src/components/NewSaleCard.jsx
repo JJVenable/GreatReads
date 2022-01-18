@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import React, { useEffect } from 'react';
+import React from 'react';
 import ProductLine from './ProductLine';
 import '../styling/NewSaleCard.css';
 
@@ -23,7 +23,7 @@ function NewSaleCard(props) {
     
     <div className="new-sale-card">
       
-      <p>Sale #{props.saleState.currentSale.id}</p>
+      <p>Suggestion List #{props.saleState.currentSale.id}</p>
       {props.saleState.currentSaleWithBooks.items.map((product) => (
         <ProductLine product={product} />
       ))}
