@@ -29,7 +29,7 @@ const AddBook = (props) => {
     newBook[e.target.id] = e.target.value;
     setCurSearch(newBook);
     console.log(newBook.title);
-    if (newBook.title.length >= 5) {
+    if (newBook.title.length >= 3) {
       props.searchExternally(newBook.title);
     }
   };

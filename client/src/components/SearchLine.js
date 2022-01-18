@@ -21,7 +21,29 @@ const SearchLine = (props) => {
     display = true;
   }
 
+  let picture = '';
+  try {
+    picture = book.volumeInfo.imageLinks.thumbnail;
+  } catch {
+    picture =
+      'https://islandpress.org/sites/default/files/default_book_cover_2015.jpg';
+  }
+
+  let writer = '';
+  try {
+    writer = book.volumeInfo.authors[0];
+  } catch {
+    writer = 'unknown';
+  }
+
   const postBook = () => {
+    let snippet = '';
+    try {
+      snippet = book.searchInfo.textSnippet;
+    } catch {
+      snippet = null;
+    }
+
     const newBook = {
       name: book.volumeInfo.title,
       description: book.volumeInfo.description,
@@ -37,7 +59,7 @@ const SearchLine = (props) => {
       averageRating: book.volumeInfo.averageRating,
       ratingsCount: book.volumeInfo.ratingsCount,
       infoLink: book.volumeInfo.infoLink,
-      textSnippet: book.searchInfo.textSnippet,
+      textSnippet: snippet,
       maturityRating: book.volumeInfo.maturityRating,
       publicDomain: book.accessInfo.publicDomain
     };
@@ -53,10 +75,10 @@ const SearchLine = (props) => {
     <div>
       {display === true ? (
         <div className="sugCard" onClick={postBook}>
-          <img className="sugPics" src={book.volumeInfo.imageLinks.thumbnail} />
+          <img className="sugPics" src={picture} />
           <div className="sug-text">
             <div className="sug-name">{book.volumeInfo.title}</div>
-            <div className="sug-author">{book.volumeInfo.authors[0]}</div>
+            <div className="sug-author">{writer}</div>
           </div>
         </div>
       ) : null}
