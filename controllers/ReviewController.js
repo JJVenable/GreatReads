@@ -34,7 +34,17 @@ const CreateReview = async (req, res) => {
 //   }
 // };
 
+const GetAllReviews = async (req, res) => {
+  try {
+    let reviews = await Review.findAll({});
+    res.send(reviews);
+  } catch (error) {
+    throw error;
+  }
+};
+
 module.exports = {
-  CreateReview
+  CreateReview,
+  GetAllReviews
   // GetReviewByBookID
 };
