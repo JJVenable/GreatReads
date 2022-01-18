@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
   Book.init(
     {
       name: DataTypes.STRING,
-      description: DataTypes.TEXT,
+      description: DataTypes.STRING(100000),
       author: DataTypes.STRING,
       price: DataTypes.FLOAT,
       inventory: DataTypes.INTEGER,
@@ -24,10 +24,10 @@ module.exports = (sequelize, DataTypes) => {
       publishedDate: DataTypes.STRING,
       apiId: DataTypes.STRING,
       categories: DataTypes.ARRAY(DataTypes.STRING),
-      averageRating: DataTypes.INTEGER,
+      averageRating: DataTypes.FLOAT,
       ratingsCount: DataTypes.INTEGER,
       infoLink: DataTypes.STRING,
-      textSnippet: DataTypes.TEXT,
+      textSnippet: DataTypes.STRING(100000),
       maturityRating: DataTypes.STRING,
       publicDomain: DataTypes.BOOLEAN
     },
