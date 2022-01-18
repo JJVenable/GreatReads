@@ -17,7 +17,17 @@ const ProductDetails = (props) => {
     props.fetchDetails(props.match.params.book_id);
   }, []);
 
-  return <div>{props.detailState.details.name}</div>;
+  return (
+    <div>
+      <div>{props.detailState.details.name}</div>
+      <div>By: {props.detailState.details.author}</div>
+      <img src={props.detailState.details.image} />
+      <div>Text Snippet: {props.detailState.details.textSnippet}</div>
+      <div>Description: {props.detailState.details.description}</div>
+      <div>Publisher: {props.detailState.details.publisher}</div>
+      <div>Date Published: {props.detailState.details.publishedDate}</div>
+    </div>
+  );
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductDetails);
