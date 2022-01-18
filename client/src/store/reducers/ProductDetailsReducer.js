@@ -1,8 +1,8 @@
-import { GET_PRODUCT_DETAILS, GET_PRODUCT_REVIEWS } from '../types';
+import { GET_PRODUCT_DETAILS, GET_ALL_PRODUCT_REVIEWS } from '../types';
 
 const iState = {
   details: {},
-  reviews: {}
+  reviews: { reviews: [] }
 };
 
 const ProductDetailsReducer = (state = iState, action) => {
@@ -10,9 +10,9 @@ const ProductDetailsReducer = (state = iState, action) => {
     case GET_PRODUCT_DETAILS:
       // console.log(action.payload);
       return { ...state, details: action.payload };
-    case GET_PRODUCT_REVIEWS:
+    case GET_ALL_PRODUCT_REVIEWS:
       console.log(action.payload);
-      return { ...state, reviews: action.payload };
+      return { ...state, reviews: { reviews: action.payload } };
     default:
       return { ...state };
   }

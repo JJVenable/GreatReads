@@ -1,7 +1,12 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { LoadProductDetailsAction } from '../store/actions/ProductDetailsAction';
+import {
+  LoadProductDetailsAction,
+  LoadAllProductReviewsAction
+} from '../store/actions/ProductDetailsAction';
 import ReviewForm from '../components/ReviewForm';
+import ReviewCard from '../components/ReviewCard';
+import ReviewsContainer from '../components/ReviewsContainer';
 
 const mapStateToProps = ({ detailState }) => {
   return { detailState };
@@ -9,13 +14,16 @@ const mapStateToProps = ({ detailState }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchDetails: (id) => dispatch(LoadProductDetailsAction(id))
+    fetchDetails: (id) => dispatch(LoadProductDetailsAction(id)),
+    fetchAllReviews: () => dispatch(LoadAllProductReviewsAction())
   };
 };
 
 const ProductDetails = (props) => {
   useEffect(() => {
     props.fetchDetails(props.match.params.book_id);
+    props.fetchAllReviews();
+    console.log(props.detailState.reviews);
   }, []);
 
   return (
@@ -28,6 +36,7 @@ const ProductDetails = (props) => {
       <div>Publisher: {props.detailState.details.publisher}</div>
       <div>Date Published: {props.detailState.details.publishedDate}</div>
       <ReviewForm />
+      <ReviewsContainer reviews={props.detailState.reviews} />
     </div>
   );
 };
