@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { LoadProductDetailsAction } from '../store/actions/ProductDetailsAction';
+import ReviewForm from '../components/ReviewForm';
 
 const mapStateToProps = ({ detailState }) => {
   return { detailState };
@@ -26,6 +27,7 @@ const ProductDetails = (props) => {
       <div>Description: {props.detailState.details.description}</div>
       <div>Publisher: {props.detailState.details.publisher}</div>
       <div>Date Published: {props.detailState.details.publishedDate}</div>
+      <ReviewForm />
     </div>
   );
 };
