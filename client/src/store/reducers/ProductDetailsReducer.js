@@ -10,7 +10,7 @@ const iState = {
   reviews: { reviews: [] },
   newReview: {
     comments: '',
-    rating: 0
+    rating: ''
   }
 };
 
@@ -32,7 +32,7 @@ const ProductDetailsReducer = (state = iState, action) => {
         reviews: { ...state.reviews, reviews: newReviewList },
         newReview: {
           comments: '',
-          rating: 0
+          rating: ''
         }
       };
     case NEW_REVIEW:

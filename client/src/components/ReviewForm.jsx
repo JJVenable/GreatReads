@@ -34,8 +34,8 @@ const ReviewForm = (props) =>  {
   return (
     <div>
       <div>Add a review here: </div>
-      <input type="text" name="comments" placeholder="Enter comment" onChange={handleChange}/>  
-      <input type="text" name="rating" placeholder="Enter rating" onChange={handleChange}/>  
+      <input type="text" name="comments" placeholder="Enter comment" value={props.detailState.newReview.comments} onChange={handleChange}/>  
+      <input type="text" name="rating" placeholder="Enter rating" value={props.detailState.newReview.rating} onChange={handleChange}/>  
       <button onClick={handleSubmit}>Submit review</button>
         </div>
   )
