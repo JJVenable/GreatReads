@@ -40,6 +40,7 @@ function App(props) {
   return (
     <div className="App">
       <Nav
+        {...props}
         authenticated={authenticated}
         user={user}
         handleLogOut={handleLogOut}
