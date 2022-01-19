@@ -23,7 +23,7 @@ const Home = (props) => {
 
   useEffect(() => {
     props.fetchProducts();
-    console.log('running useEffect');
+   
   }, []);
 
   const beginSale = () => {
