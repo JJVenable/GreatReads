@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "../App.css";
 import AddBook from "./AddBooks";
 import "../styling/NavBar.css";
+import logo from '../images/greatreadsLogo.png'
 
 const Nav = () => {
   return (
@@ -10,7 +11,7 @@ const Nav = () => {
       <nav>
         <div>
           <Link to="/" className="upperNav">
-            Home
+            <img src ={logo} className="app-logo" />
           </Link>
           <Link to="/about" className="upperNav">
             About
