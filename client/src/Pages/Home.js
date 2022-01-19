@@ -1,10 +1,12 @@
 import NewSaleCard from '../components/NewSaleCard';
 import ProductCard from '../components/ProductCard';
-// import ProductLine from './components/ProductLine'
 import { connect } from 'react-redux';
 import React, { useEffect } from 'react';
 import { LoadProducts } from '../store/actions/ProductCardActions';
-import { CreateSaleAction } from '../store/actions/SaleAction';
+import {
+  CreateSaleAction,
+  ToggleListStatusAction
+} from '../store/actions/SaleAction';
 import AddBooks from '../components/AddBooks';
 
 const mapStateToProps = ({ productCardState, saleState }) => {
@@ -15,7 +17,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     fetchProducts: () => dispatch(LoadProducts()),
     // pass something in if 1 isn't hardcoded in saleAction.js
-    postSale: (userId) => dispatch(CreateSaleAction(userId))
+    postSale: (userId) => dispatch(CreateSaleAction(userId)),
+    toggleListStatus: () => dispatch(ToggleListStatusAction())
   };
 };
 
@@ -30,6 +33,9 @@ const Home = (props) => {
   const beginSale = () => {
     console.log('Favorites list started!');
     props.postSale(props.user.id);
+    console.log(props.saleState.listStatus);
+    props.toggleListStatus();
+    console.log(props.saleState.listStatus);
   };
 
   return (
