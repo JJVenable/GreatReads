@@ -15,8 +15,9 @@ function NewSaleCard(props) {
   return (
     <div className="new-sale-card">
       <p>Suggestion List #{props.saleState.currentSale.id}</p>
-      {props.saleState.currentSaleWithBooks.items.map((product) => (
+      {props.saleState.currentSaleWithBooks.items.map((product, index) => (
         <ProductLine 
+        key={index}
         product={product} />
       ))}
     </div>
