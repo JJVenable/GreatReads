@@ -60,7 +60,7 @@ function ProductCard(props) {
     props.deleteProduct(id)
   }
   return (
-    <div className="product-card">
+    <div className="product-card" >
       <img className='card-img' src={props.product.image} onClick={props.onClick}/>
       <div className='card-name'>{props.product.name}</div>
       <div className='card-author'>by {props.product.author}</div>
