@@ -1,7 +1,13 @@
-import { GET_PRODUCT_DETAILS, GET_ALL_PRODUCT_REVIEWS } from '../types';
+import {
+  GET_PRODUCT_DETAILS,
+  GET_BOOK_WITH_ALL_REVIEWS,
+  CREATE_REVIEW,
+  NEW_REVIEW
+} from '../types';
 import {
   GetProductDetailsService,
-  GetAllProductReviewsService
+  GetBookWithAllReviewsService,
+  CreateReviewService
 } from '../../services/ProductDetailsService';
 
 /// load product details
@@ -19,13 +25,13 @@ export const LoadProductDetailsAction = (bookId) => {
   };
 };
 
-/// load product reviews
-export const LoadAllProductReviewsAction = () => {
+/// get book and all reviews
+export const LoadBookAndAllReviews = (bookId) => {
   return async (dispatch) => {
     try {
-      const reviews = await GetAllProductReviewsService();
+      const reviews = await GetBookWithAllReviewsService(bookId);
       dispatch({
-        type: GET_ALL_PRODUCT_REVIEWS,
+        type: GET_BOOK_WITH_ALL_REVIEWS,
         payload: reviews
       });
     } catch (error) {
@@ -33,3 +39,24 @@ export const LoadAllProductReviewsAction = () => {
     }
   };
 };
+
+// create review and add to database
+export const CreateReviewAction = (userId, bookId, review) => {
+  return async (dispatch) => {
+    try {
+      await CreateReviewService(userId, bookId, review);
+      dispatch({
+        type: CREATE_REVIEW,
+        payload: review
+      });
+    } catch (error) {
+      throw error;
+    }
+  };
+};
+
+// new review from form inputs
+export const NewReviewAction = (form) => ({
+  type: NEW_REVIEW,
+  payload: form
+});

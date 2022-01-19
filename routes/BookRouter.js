@@ -7,5 +7,6 @@ Router.get('/all', controller.GetAllBooks);
 Router.delete('/delete/:book_id', controller.DeleteBookByID);
 Router.post('/post', controller.CreateBook);
 Router.put('/update/:book_id', controller.UpdateBook);
+Router.get('/reviews/:book_id', controller.GetBookWithAllReviews);
 
 module.exports = Router;

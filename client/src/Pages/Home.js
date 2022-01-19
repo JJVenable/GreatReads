@@ -19,6 +19,7 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 const Home = (props) => {
+  console.log(props.user);
   let display = false;
 
   useEffect(() => {
