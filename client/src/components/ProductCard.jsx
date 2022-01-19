@@ -73,7 +73,7 @@ function ProductCard(props) {
         <div className='card-quantity'>Number of times read: {props.product.inventory} </div>
         <button onClick={() => readBook(props.product.id)}>Read Book</button>
         <button onClick={() => buyProduct(props.product.id)}>Add to Suggestion List</button>
-        <button onClick={() => delProduct(props.product.id)}>Remove Product</button>
+        <button onClick={() => delProduct(props.product.id)} className="remove-Button">Remove Product</button>
       </div>
     </div>
   );
