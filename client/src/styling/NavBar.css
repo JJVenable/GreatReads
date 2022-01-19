@@ -1,11 +1,10 @@
 .nav {
-  background-color: rgb(244, 237, 221)
+  background-color: rgb(244, 237, 221);
 }
 
 .upperNav {
-  background-color:rgb(237, 217, 190);
+  background-color: rgb(237, 217, 190);
 }
-
 
 .nav a {
   display: flex;
