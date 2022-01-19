@@ -2,7 +2,7 @@ import NewSaleCard from '../components/NewSaleCard';
 import ProductCard from '../components/ProductCard';
 // import ProductLine from './components/ProductLine'
 import { connect } from 'react-redux';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { LoadProducts } from '../store/actions/ProductCardActions';
 import { CreateSaleAction } from '../store/actions/SaleAction';
 
@@ -19,22 +19,23 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 const Home = (props) => {
+  console.log(props.user);
   let display = false;
 
   useEffect(() => {
     props.fetchProducts();
-    console.log('running useEffect');
+   
   }, []);
 
   const beginSale = () => {
-    console.log('Another Sale started!');
+    console.log('Favorites list started!');
     props.postSale();
   };
 
   return (
     <div className="home-page">
-      <div>Order</div>
-      <button onClick={beginSale}>Begin Sale Transaction</button>
+      <div></div>
+      <button onClick={beginSale}>Make Suggestion List</button>
       <div>
         <NewSaleCard />
       </div>
