@@ -7,3 +7,16 @@
 }
 
 
+.nav a {
+  display: flex;
+  flex-direction: row;
+  float: left;
+  width: 50%;
+  justify-content: space-around;
+  margin-bottom: 25px;
+}
+
+.nav a:hover {
+  font-weight: bold;
+  box-shadow: 0 0 10px 0 black;
+}
