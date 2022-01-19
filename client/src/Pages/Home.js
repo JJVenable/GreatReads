@@ -27,7 +27,7 @@ const Home = (props) => {
   }, []);
 
   const beginSale = () => {
-    console.log('Favorites list started!');
+    console.log('Favorites list started!!');
     props.postSale(props.user.id);
   };
 
