@@ -41,7 +41,14 @@ const Home = (props) => {
   return (
     <div className="home-page">
       <AddBooks />
-      <button onClick={beginSale}>Make Suggestion List</button>
+      <div>
+        {props.saleState.listStatus === false ? (
+          <div>
+            <button onClick={beginSale}>Make Suggestion List</button>
+          </div>
+        ) : null}
+      </div>
+
       <div>
         <NewSaleCard />
       </div>
