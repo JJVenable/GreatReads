@@ -10,11 +10,11 @@ import {
   DisplayBookInSaleService
 } from '../../services/SaleService';
 
-export const CreateSaleAction = () => {
+export const CreateSaleAction = (userId) => {
   return async (dispatch) => {
     try {
       //SaleService hardcoded to 1 below.
-      const newSale = await CreateSaleService(1);
+      const newSale = await CreateSaleService(userId);
       dispatch({
         type: CREATE_SALE,
         payload: newSale

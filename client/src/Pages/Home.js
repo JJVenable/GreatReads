@@ -14,7 +14,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     fetchProducts: () => dispatch(LoadProducts()),
     // pass something in if 1 isn't hardcoded in saleAction.js
-    postSale: () => dispatch(CreateSaleAction())
+    postSale: (userId) => dispatch(CreateSaleAction(userId))
   };
 };
 
@@ -24,12 +24,11 @@ const Home = (props) => {
 
   useEffect(() => {
     props.fetchProducts();
-   
   }, []);
 
   const beginSale = () => {
     console.log('Favorites list started!');
-    props.postSale();
+    props.postSale(props.user.id);
   };
 
   return (

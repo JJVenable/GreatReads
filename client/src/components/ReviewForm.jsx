@@ -27,9 +27,7 @@ const ReviewForm = (props) =>  {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // hardcoded 1 below for user id, will change once we implement user auth
-    props.createReview(1, props.detailState.details.id, props.detailState.newReview);
-    // console.log(props.detailState.details.id);
+    props.createReview(props.user.id, props.detailState.details.id, props.detailState.newReview);
   };
 
   return (
