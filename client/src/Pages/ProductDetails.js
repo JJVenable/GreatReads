@@ -8,7 +8,6 @@ import ReviewForm from '../components/ReviewForm';
 import ReviewCard from '../components/ReviewCard';
 import ReviewsContainer from '../components/ReviewsContainer';
 
-
 const mapStateToProps = ({ detailState }) => {
   return { detailState };
 };
@@ -35,6 +34,9 @@ const ProductDetails = (props) => {
       <div>Description: {props.detailState.details.description}</div>
       <div>Publisher: {props.detailState.details.publisher}</div>
       <div>Date Published: {props.detailState.details.publishedDate}</div>
+      <a href={props.detailState.details.infoLink} target="_blank">
+        Buy this book
+      </a>
       <ReviewForm user={props.user} />
       <ReviewsContainer reviews={props.detailState.reviews} />
     </div>
