@@ -32,10 +32,7 @@ function ProductCard(props) {
   /// buy product/ reduce inventory
   // NOW add to suggestions list
   const buyProduct = (id) => {
-    // const newInventoryCount = props.product.inventory + 1
-    // const newBody = { "inventory": newInventoryCount }
-    // console.log(props.productCardState.id)
-    // props.updateProduct(id, newBody)
+
     props.addBookToSale({
       saleId: props.saleState.currentSale.id,
       bookId: id
