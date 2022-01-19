@@ -1,8 +1,21 @@
-import { GET_PRODUCT_DETAILS, GET_ALL_PRODUCT_REVIEWS } from '../types';
+import {
+  GET_PRODUCT_DETAILS,
+  CREATE_REVIEW,
+  NEW_REVIEW,
+  GET_BOOK_WITH_ALL_REVIEWS
+} from '../types';
 
 const iState = {
   details: {},
-  reviews: { reviews: [] }
+  reviews: {
+    reviews: {
+      Reviews: []
+    }
+  },
+  newReview: {
+    comments: '',
+    rating: ''
+  }
 };
 
 const ProductDetailsReducer = (state = iState, action) => {
@@ -10,12 +23,37 @@ const ProductDetailsReducer = (state = iState, action) => {
     case GET_PRODUCT_DETAILS:
       // console.log(action.payload);
       return { ...state, details: action.payload };
-    case GET_ALL_PRODUCT_REVIEWS:
-      console.log(action.payload);
+    case GET_BOOK_WITH_ALL_REVIEWS:
+      // console.log(action.payload);
       return { ...state, reviews: { reviews: action.payload } };
+    case CREATE_REVIEW:
+      console.log(action.payload);
+      let newReviewList = state.reviews.reviews;
+      newReviewList.push(action.payload);
+      console.log(newReviewList);
+      return {
+        ...state,
+        reviews: { ...state.reviews, reviews: newReviewList },
+        newReview: {
+          comments: '',
+          rating: ''
+        }
+      };
+    case NEW_REVIEW:
+      console.log(action.payload);
+      return {
+        ...state,
+        newReview: action.payload
+      };
     default:
       return { ...state };
   }
 };
 
 export default ProductDetailsReducer;
+
+// case CREATE_BOOK:
+//   let newProductsList = state.products;
+//   newProductsList.push(action.payload);
+//   console.log(newProductsList);
+//   return { ...state, products: newProductsList };

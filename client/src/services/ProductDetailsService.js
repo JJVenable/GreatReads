@@ -13,13 +13,22 @@ export const GetProductDetailsService = async (bookId) => {
 
 /// get all product reviews
 // this will eventually need to be get all product reviews by book id (regardless of user id)
-export const GetAllProductReviewsService = async () => {
+export const GetBookWithAllReviewsService = async (bookId) => {
   try {
-    const res = await client.get(`/reviews/book_reviews`);
+    const res = await client.get(`/books/reviews/${bookId}`);
     return res.data;
   } catch (error) {
     throw error;
   }
 };
 
-// will need to add a service to create review by user id and book id
+// create review by book id and user id
+export const CreateReviewService = async (userId, bookId, body) => {
+  try {
+    const res = await client.post(`/reviews/${userId}/${bookId}`, body);
+    console.log(res.data);
+    return res.data;
+  } catch (error) {
+    throw error;
+  }
+};
