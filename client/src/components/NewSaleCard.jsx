@@ -16,7 +16,8 @@ function NewSaleCard(props) {
     <div className="new-sale-card">
       <p>Suggestion List #{props.saleState.currentSale.id}</p>
       {props.saleState.currentSaleWithBooks.items.map((product) => (
-        <ProductLine product={product} />
+        <ProductLine 
+        product={product} />
       ))}
     </div>
   );

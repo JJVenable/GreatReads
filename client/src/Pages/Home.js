@@ -40,7 +40,7 @@ const Home = (props) => {
       </div>
 
       <div className="product-cont">
-        {props.productCardState.products.map((product) => (
+        {props.productCardState.products.map((product, index) => (
           <ProductCard
             product={product}
             onClick={() => props.history.push(`/books/details/${product.id}`)}
