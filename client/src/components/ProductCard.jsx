@@ -5,6 +5,7 @@ import { RemoveProduct, UpdateProduct } from '../store/actions/ProductCardAction
 import { AddBookToSaleAction, DisplayBookInSaleAction, DisplayAssociationAction } from '../store/actions/SaleAction';
 
 
+
 const mapStateToProps = ({ productCardState, saleState }) => {
   return { productCardState, saleState };
 };

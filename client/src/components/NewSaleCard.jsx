@@ -14,9 +14,12 @@ const mapDispatchToProps = (dispatch) => {
 function NewSaleCard(props) {
   return (
     <div className="new-sale-card">
-      <p>Personal List #{props.saleState.currentSale.id}</p>
-      {props.saleState.currentSaleWithBooks.items.map((product) => (
-        <ProductLine product={product} />
+      <p>Suggestion List #{props.saleState.currentSale.id}</p>
+      {props.saleState.currentSaleWithBooks.items.map((product, index) => (
+        <ProductLine 
+        key={index}
+        product={product} />
+
       ))}
     </div>
   );

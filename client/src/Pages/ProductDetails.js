@@ -8,6 +8,7 @@ import ReviewForm from '../components/ReviewForm';
 import ReviewCard from '../components/ReviewCard';
 import ReviewsContainer from '../components/ReviewsContainer';
 
+
 const mapStateToProps = ({ detailState }) => {
   return { detailState };
 };
