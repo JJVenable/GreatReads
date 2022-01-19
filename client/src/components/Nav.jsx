@@ -29,7 +29,13 @@ const Nav = (props) => {
           <Link to="/" className="upperNav about-link" onClick={() => props.handleLogOut()}>
             Log Out
           </Link>
-
+          {props.authenticated === true ? (
+              <Link to="/lists" className="upperNav about-link">
+                My Lists
+              </Link>
+          ) : (
+            null
+          )}
         </div>
 
       </nav>

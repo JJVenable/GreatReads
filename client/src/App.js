@@ -64,6 +64,11 @@ function App(props) {
           <Route exact path="/about" component={About} />
           <Route
             exact
+            path="/lists"
+            component={(props) => <ViewLists {...props} user={user} />}
+          />
+          <Route
+            exact
             path="/books/details/:book_id"
             component={(props) => <ProductDetails {...props} user={user} />}
           />
