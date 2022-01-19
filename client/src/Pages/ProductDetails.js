@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import {
   LoadProductDetailsAction,
-  LoadAllProductReviewsAction
+  LoadBookAndAllReviews
 } from '../store/actions/ProductDetailsAction';
 import ReviewForm from '../components/ReviewForm';
 import ReviewCard from '../components/ReviewCard';
@@ -14,15 +14,15 @@ const mapStateToProps = ({ detailState }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchDetails: (id) => dispatch(LoadProductDetailsAction(id)),
-    fetchAllReviews: () => dispatch(LoadAllProductReviewsAction())
+    fetchDetails: (bookId) => dispatch(LoadProductDetailsAction(bookId)),
+    fetchReviews: (bookId) => dispatch(LoadBookAndAllReviews(bookId))
   };
 };
 
 const ProductDetails = (props) => {
   useEffect(() => {
     props.fetchDetails(props.match.params.book_id);
-    props.fetchAllReviews();
+    props.fetchReviews(props.match.params.book_id);
     // console.log(props.detailState.reviews);
   }, []);
 

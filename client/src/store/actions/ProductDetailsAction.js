@@ -1,12 +1,12 @@
 import {
   GET_PRODUCT_DETAILS,
-  GET_ALL_PRODUCT_REVIEWS,
+  GET_BOOK_WITH_ALL_REVIEWS,
   CREATE_REVIEW,
   NEW_REVIEW
 } from '../types';
 import {
   GetProductDetailsService,
-  GetAllProductReviewsService,
+  GetBookWithAllReviewsService,
   CreateReviewService
 } from '../../services/ProductDetailsService';
 
@@ -25,13 +25,13 @@ export const LoadProductDetailsAction = (bookId) => {
   };
 };
 
-/// load product reviews
-export const LoadAllProductReviewsAction = () => {
+/// get book and all reviews
+export const LoadBookAndAllReviews = (bookId) => {
   return async (dispatch) => {
     try {
-      const reviews = await GetAllProductReviewsService();
+      const reviews = await GetBookWithAllReviewsService(bookId);
       dispatch({
-        type: GET_ALL_PRODUCT_REVIEWS,
+        type: GET_BOOK_WITH_ALL_REVIEWS,
         payload: reviews
       });
     } catch (error) {

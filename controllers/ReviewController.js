@@ -17,23 +17,6 @@ const CreateReview = async (req, res) => {
   }
 };
 
-// const GetReviewByBookID = async (req, res) => {
-//   try {
-//     let bookId = parseInt(req.params.book_id);
-//     const reviews = await Book.findByPk(bookId, {
-//       include: [
-//         {
-//           model: Review,
-//           through: { attributes: [] }
-//         }
-//       ]
-//     });
-//     res.send(reviews);
-//   } catch (error) {
-//     throw error;
-//   }
-// };
-
 const GetAllReviews = async (req, res) => {
   try {
     let reviews = await Review.findAll({});
@@ -46,5 +29,4 @@ const GetAllReviews = async (req, res) => {
 module.exports = {
   CreateReview,
   GetAllReviews
-  // GetReviewByBookID
 };
