@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import React, { useEffect } from 'react';
 import { LoadProducts } from '../store/actions/ProductCardActions';
 import { CreateSaleAction } from '../store/actions/SaleAction';
+import AddBooks from '../components/AddBooks';
 
 const mapStateToProps = ({ productCardState, saleState }) => {
   return { productCardState, saleState };
@@ -33,7 +34,7 @@ const Home = (props) => {
 
   return (
     <div className="home-page">
-      <div></div>
+      <AddBooks />
       <button onClick={beginSale}>Make Suggestion List</button>
       <div>
         <NewSaleCard />

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
-import AddBook from "./AddBooks";
+// import AddBook from "./AddBooks";
 import "../styling/NavBar.css";
 import logo from '../images/greatreadsLogo.png'
 
@@ -33,7 +33,7 @@ const Nav = (props) => {
 
         </div>
 
-        <AddBook />
+        {/* <AddBook /> */}
       </nav>
     </header>
   );
