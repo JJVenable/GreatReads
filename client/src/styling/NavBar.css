@@ -1,10 +1,18 @@
 .nav {
   background-color: rgb(244, 237, 221);
+  
 }
 
 .upperNav {
   background-color: rgb(237, 217, 190);
+  height: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  /* vertical-align: center; */
+  position: relative;
+  top: 50%;
 }
+
 
 .nav a {
   display: flex;
@@ -12,7 +20,7 @@
   float: left;
   width: 50%;
   justify-content: space-around;
-  margin-bottom: 25px;
+  /* margin-bottom: 25px; */
 }
 
 .nav a:hover {
@@ -22,4 +30,15 @@
 
 .app-logo {
   width: 100px;
+}
+
+.about-link {
+  padding: 15px 0 0 0 ;
+  /* margin-bottom: -10px; */
+  height: 35px;
+  color: black;
+}
+
+.search-bar {
+  padding: 60px 0 15px 0; 
 }

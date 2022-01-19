@@ -19,6 +19,7 @@ function NewSaleCard(props) {
         <ProductLine 
         key={index}
         product={product} />
+
       ))}
     </div>
   );

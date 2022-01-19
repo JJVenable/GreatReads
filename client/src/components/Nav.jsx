@@ -10,10 +10,10 @@ const Nav = () => {
     <header className="nav">
       <nav>
         <div>
-          <Link to="/" className="upperNav">
+          <Link to="/feed" className="upperNav">
             <img src ={logo} className="app-logo" />
           </Link>
-          <Link to="/about" className="upperNav">
+          <Link to="/about" className="upperNav about-link">
             About
           </Link>
         </div>

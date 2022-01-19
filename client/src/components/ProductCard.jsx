@@ -31,7 +31,7 @@ function ProductCard(props) {
 
 
   /// buy product/ reduce inventory
-  // NOW add to suggestions list
+  // NOW add to personal list
   const buyProduct = (id) => {
 
     props.addBookToSale({
@@ -61,16 +61,16 @@ function ProductCard(props) {
     props.deleteProduct(id)
   }
   return (
-    <div className="product-card">
+    <div className="product-card" >
       <img className='card-img' src={props.product.image} onClick={props.onClick}/>
       <div className='card-name'>{props.product.name}</div>
       <div className='card-author'>by {props.product.author}</div>
       <div className='card-price'>${props.product.price}</div>
       <img className='card-rating' src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.libbyhellmann.com%2Fwp-content%2Fuploads%2F2015%2F11%2F5stars.png&f=1&nofb=1" />
       <div className='buy-line'>
-        <div className='card-quantity'>Number of times read: {props.product.inventory} </div>
-        <button onClick={() => readBook(props.product.id)}>Read Book</button>
-        <button onClick={() => buyProduct(props.product.id)}>Add to Suggestion List</button>
+        <div className='card-quantity'>Class likes: {props.product.inventory} </div>
+        <button onClick={() => readBook(props.product.id)}>I Like this</button>
+        <button onClick={() => buyProduct(props.product.id)}>Add to Personal list</button>
         <button onClick={() => delProduct(props.product.id)} className="remove-Button">Remove Product</button>
       </div>
     </div>

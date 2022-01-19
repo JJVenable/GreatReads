@@ -37,7 +37,7 @@ const AddBook = (props) => {
   return (
     <div className="addBook">
       <div className="search-bar">
-        <div className="dept">Your Books</div>
+        <div className="dept">Our Books</div>
         <input
           className={searchStatus}
           onClick={changeSearch}
@@ -46,7 +46,7 @@ const AddBook = (props) => {
           value={curSearch.title}
           onChange={(e) => handleChange(e)}
           id="title"
-          placeholder="Add book to library"
+          placeholder="Add to shared library"
           autoComplete="off"
         />
         <i className="fas fa-search"></i>
