@@ -35,7 +35,7 @@ const ProductDetails = (props) => {
       <div>Publisher: {props.detailState.details.publisher}</div>
       <div>Date Published: {props.detailState.details.publishedDate}</div>
       <a href={props.detailState.details.infoLink} target="_blank">
-        Buy this book
+        Buy this book!
       </a>
       <ReviewForm user={props.user} />
       <ReviewsContainer reviews={props.detailState.reviews} />
