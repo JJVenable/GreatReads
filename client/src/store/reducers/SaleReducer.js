@@ -4,14 +4,16 @@ import {
   DISPLAY_BOOK_IN_SALE,
   DISPLAY_ASSOCIATION,
   SET_LIST_STATUS,
-  CLEAR_LIST
+  CLEAR_LIST,
+  SET_LISTS
 } from '../types';
 
 const iState = {
   currentSale: {},
   currentSaleWithBooks: { items: [] },
   displaySale: false,
-  listStatus: false
+  listStatus: false,
+  lists: []
 };
 
 const SaleReducer = (state = iState, action) => {
@@ -30,6 +32,9 @@ const SaleReducer = (state = iState, action) => {
       } else {
         return { ...state, listStatus: false };
       }
+    case SET_LISTS:
+      console.log(action.payload);
+      return { ...state, lists: action.payload };
     case CLEAR_LIST:
       return { ...state, currentSaleWithBooks: { items: [] } };
     default:
