@@ -13,7 +13,7 @@ const Nav = () => {
           <Link to="/" className="upperNav">
             <img src ={logo} className="app-logo" />
           </Link>
-          <Link to="/about" className="upperNav">
+          <Link to="/about" className="upperNav about-link">
             About
           </Link>
         </div>
