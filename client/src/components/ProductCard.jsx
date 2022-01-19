@@ -70,7 +70,13 @@ function ProductCard(props) {
       <div className='buy-line'>
         <div className='card-quantity'>Class likes: {props.product.inventory} </div>
         <button onClick={() => readBook(props.product.id)}>I Like this</button>
-        <button onClick={() => buyProduct(props.product.id)}>Add to Personal list</button>
+        <div>
+          {props.saleState.listStatus === true ? (
+            <div>
+              <button onClick={() => buyProduct(props.product.id)}>Add to Personal list</button>
+            </div>
+          ) : (null)}
+        </div>
         <button onClick={() => delProduct(props.product.id)} className="remove-Button">Remove Product</button>
       </div>
     </div>

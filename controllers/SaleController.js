@@ -61,9 +61,30 @@ const DeleteSale = async (req, res) => {
   }
 };
 
+const GetSalesByUserId = async (req, res) => {
+  try {
+    const curUserId = parseInt(req.params.user_id);
+    const result = await Sale.findAll({
+      where: { userId: curUserId },
+      include: [
+        {
+          model: Book,
+          as: 'items',
+          through: { attributes: [] }
+        }
+      ]
+    });
+    res.send(result);
+    console.log(result);
+  } catch (error) {
+    throw error;
+  }
+};
+
 module.exports = {
   CreateSale,
   GetSaleWithBooks,
   GetSales,
-  DeleteSale
+  DeleteSale,
+  GetSalesByUserId
 };

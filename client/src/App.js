@@ -10,6 +10,7 @@ import SignIn from './Pages/SignIn';
 import ProductDetails from './Pages/ProductDetails';
 import { CheckSession } from './services/Auth';
 import ProtectedRoute from './components/ProtectedRoute';
+import ViewLists from './Pages/ViewLists';
 
 function App(props) {
   const [authenticated, toggleAuthenticated] = useState(false);
@@ -40,6 +41,7 @@ function App(props) {
   return (
     <div className="App">
       <Nav
+        {...props}
         authenticated={authenticated}
         user={user}
         handleLogOut={handleLogOut}
