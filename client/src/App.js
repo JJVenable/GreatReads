@@ -63,7 +63,7 @@ function App(props) {
           <Route
             exact
             path="/books/details/:book_id"
-            component={(props) => <ProductDetails {...props} />}
+            component={(props) => <ProductDetails {...props} user={user} />}
           />
           {user && authenticated && (
             <ProtectedRoute

@@ -23,7 +23,6 @@ const ProductDetails = (props) => {
   useEffect(() => {
     props.fetchDetails(props.match.params.book_id);
     props.fetchReviews(props.match.params.book_id);
-    // console.log(props.detailState.reviews);
   }, []);
 
   return (
@@ -35,7 +34,7 @@ const ProductDetails = (props) => {
       <div>Description: {props.detailState.details.description}</div>
       <div>Publisher: {props.detailState.details.publisher}</div>
       <div>Date Published: {props.detailState.details.publishedDate}</div>
-      <ReviewForm />
+      <ReviewForm user={props.user} />
       <ReviewsContainer reviews={props.detailState.reviews} />
     </div>
   );
