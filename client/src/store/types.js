@@ -13,3 +13,4 @@ export const GET_BOOK_WITH_ALL_REVIEWS = 'GET_BOOK_WITH_ALL_REVIEWS';
 export const CREATE_REVIEW = 'CREATE_REVIEW';
 export const NEW_REVIEW = 'NEW_REVIEW';
 export const SET_LIST_STATUS = 'SET_LIST_STATUS';
+export const CLEAR_LIST = 'CLEAR_LIST';

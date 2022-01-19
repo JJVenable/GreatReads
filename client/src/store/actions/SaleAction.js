@@ -3,7 +3,8 @@ import {
   ADD_BOOK_TO_SALE,
   DISPLAY_BOOK_IN_SALE,
   DISPLAY_ASSOCIATION,
-  SET_LIST_STATUS
+  SET_LIST_STATUS,
+  CLEAR_LIST
 } from '../types';
 import {
   CreateSaleService,
@@ -61,5 +62,10 @@ export const DisplayAssociationAction = () => ({
 
 export const ToggleListStatusAction = () => ({
   type: SET_LIST_STATUS,
+  payload: 'none'
+});
+
+export const ClearListAction = () => ({
+  type: CLEAR_LIST,
   payload: 'none'
 });
