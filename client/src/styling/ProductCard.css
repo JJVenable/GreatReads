@@ -5,6 +5,12 @@
 
 .card-quantity {
   font-size: 15px;
+  position: relative;
+}
+
+.remove-Button {
+  position: relative;
+  bottom: 0px;
 }
 
 .card-price {
@@ -31,3 +37,4 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+
