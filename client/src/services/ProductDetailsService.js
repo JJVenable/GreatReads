@@ -22,4 +22,16 @@ export const GetAllProductReviewsService = async () => {
   }
 };
 
-// will need to add a service to create review by user id and book id
+// create review by book id and user id
+// hardcoding the user id to be 1, this will change when we incorporate auth
+export const CreateReviewService = async (userId, bookId, body) => {
+  try {
+    const res = await client.post(`/reviews/${userId}/${bookId}`, body);
+    console.log(res.data);
+    return res.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+// Router.post('/:user_id/:book_id', controller.CreateReview);

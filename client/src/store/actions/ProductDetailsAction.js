@@ -1,7 +1,13 @@
-import { GET_PRODUCT_DETAILS, GET_ALL_PRODUCT_REVIEWS } from '../types';
+import {
+  GET_PRODUCT_DETAILS,
+  GET_ALL_PRODUCT_REVIEWS,
+  CREATE_REVIEW,
+  NEW_REVIEW
+} from '../types';
 import {
   GetProductDetailsService,
-  GetAllProductReviewsService
+  GetAllProductReviewsService,
+  CreateReviewService
 } from '../../services/ProductDetailsService';
 
 /// load product details
@@ -33,3 +39,24 @@ export const LoadAllProductReviewsAction = () => {
     }
   };
 };
+
+// create review and add to database
+export const CreateReviewAction = (userId, bookId, review) => {
+  return async (dispatch) => {
+    try {
+      await CreateReviewService(userId, bookId, review);
+      dispatch({
+        type: CREATE_REVIEW,
+        payload: review
+      });
+    } catch (error) {
+      throw error;
+    }
+  };
+};
+
+// new review from form inputs
+export const NewReviewAction = (form) => ({
+  type: NEW_REVIEW,
+  payload: form
+});

@@ -23,7 +23,7 @@ const ProductDetails = (props) => {
   useEffect(() => {
     props.fetchDetails(props.match.params.book_id);
     props.fetchAllReviews();
-    console.log(props.detailState.reviews);
+    // console.log(props.detailState.reviews);
   }, []);
 
   return (
