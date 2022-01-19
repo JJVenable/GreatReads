@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import '../styling/ProductCard.css'
-import React, { useEffect } from 'react';
+import React from 'react';
 import { RemoveProduct, UpdateProduct } from '../store/actions/ProductCardActions';
 import { AddBookToSaleAction, DisplayBookInSaleAction, DisplayAssociationAction } from '../store/actions/SaleAction';
 
@@ -20,13 +20,22 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 function ProductCard(props) {
-  // let price = (props.product.price * .01).toFixed(2)
-  /// buy product/ reduce inventory
-  const buyProduct = (id) => {
-    const newInventoryCount = props.product.inventory - 1
+  
+  // increase Read count
+  const readBook = (id) => {
+    const newInventoryCount = props.product.inventory + 1
     const newBody = { "inventory": newInventoryCount }
-    console.log(props.productCardState.id)
     props.updateProduct(id, newBody)
+  }
+
+
+  /// buy product/ reduce inventory
+  // NOW add to suggestions list
+  const buyProduct = (id) => {
+    // const newInventoryCount = props.product.inventory + 1
+    // const newBody = { "inventory": newInventoryCount }
+    // console.log(props.productCardState.id)
+    // props.updateProduct(id, newBody)
     props.addBookToSale({
       saleId: props.saleState.currentSale.id,
       bookId: id
@@ -61,9 +70,10 @@ function ProductCard(props) {
       <div className='card-price'>${props.product.price}</div>
       <img className='card-rating' src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.libbyhellmann.com%2Fwp-content%2Fuploads%2F2015%2F11%2F5stars.png&f=1&nofb=1" />
       <div className='buy-line'>
-        <div className='card-quantity'>Only {props.product.inventory} left in stock.</div>
-        <button onClick={() => buyProduct(props.product.id)}>Buy Now!</button>
-        <button onClick={() => delProduct(props.product.id)}>Remove Product</button>
+        <div className='card-quantity'>Number of times read: {props.product.inventory} </div>
+        <button onClick={() => readBook(props.product.id)}>Read Book</button>
+        <button onClick={() => buyProduct(props.product.id)}>Add to Suggestion List</button>
+        <button onClick={() => delProduct(props.product.id)} className="remove-Button">Remove Product</button>
       </div>
     </div>
   );

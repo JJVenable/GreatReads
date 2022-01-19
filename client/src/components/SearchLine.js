@@ -49,7 +49,7 @@ const SearchLine = (props) => {
       description: book.volumeInfo.description,
       author: book.volumeInfo.authors[0],
       price: book.saleInfo.listPrice.amount,
-      inventory: 10,
+      inventory: 0,
       image: book.volumeInfo.imageLinks.thumbnail,
       pageCount: book.volumeInfo.pageCount,
       publisher: book.volumeInfo.publisher,
