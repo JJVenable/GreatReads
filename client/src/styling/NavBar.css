@@ -19,3 +19,7 @@
   font-weight: bold;
   box-shadow: 0 0 10px 0 black;
 }
+
+.app-logo {
+  width: 100px;
+}
