@@ -25,3 +25,12 @@ export const DisplayBookInSaleService = async (saleId) => {
     throw error;
   }
 };
+
+export const LoadListsService = async (userId) => {
+  try {
+    const res = await client.get(`sales/lists/${userId}`);
+    return res.data;
+  } catch (error) {
+    throw error;
+  }
+};
