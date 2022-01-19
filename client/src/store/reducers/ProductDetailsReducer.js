@@ -27,17 +27,18 @@ const ProductDetailsReducer = (state = iState, action) => {
       // console.log(action.payload);
       return { ...state, reviews: { reviews: action.payload } };
     case CREATE_REVIEW:
-      console.log(action.payload);
-      let newReviewList = state.reviews.reviews;
-      newReviewList.push(action.payload);
-      console.log(newReviewList);
+      // console.log(action.payload);
+      // let newReviewList = state.reviews.reviews.Reviews;
+      // console.log(newReviewList);
+      // newReviewList.push(action.payload);
+      // console.log(newReviewList);
       return {
-        ...state,
-        reviews: { ...state.reviews, reviews: newReviewList },
-        newReview: {
-          comments: '',
-          rating: ''
-        }
+        ...state
+        // reviews: { ...state.reviews.reviews, Reviews: newReviewList },
+        // newReview: {
+        //   comments: '',
+        //   rating: ''
+        // }
       };
     case NEW_REVIEW:
       console.log(action.payload);
