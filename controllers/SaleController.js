@@ -6,7 +6,6 @@ const CreateSale = async (req, res) => {
     let userId = parseInt(req.params.user_id);
     let saleBody = {
       userId
-      // ...req.body
     };
     let sale = await Sale.create(saleBody);
     res.send(sale);
@@ -29,7 +28,7 @@ const GetSaleWithBooks = async (req, res) => {
     });
     res.send(sale);
   } catch (error) {
-    console.log(error);
+    throw error;
   }
 };
 
@@ -45,7 +44,6 @@ const GetSales = async (req, res) => {
       ]
     });
     res.send(result);
-    console.log(result);
   } catch (error) {
     throw error;
   }
@@ -75,7 +73,6 @@ const GetSalesByUserId = async (req, res) => {
       ]
     });
     res.send(result);
-    console.log(result);
   } catch (error) {
     throw error;
   }
