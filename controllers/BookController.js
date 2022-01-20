@@ -1,11 +1,10 @@
-const { User, Book, Sale, CheckoutList } = require('../models');
+const { User, Book, Sale, Review, CheckoutList } = require('../models');
 const { Op, literal, fn, col } = require('sequelize');
 
 const GetAllBooks = async (req, res) => {
   try {
     const result = await Book.findAll({});
     res.send(result);
-    console.log(result);
   } catch (error) {
     throw error;
   }
@@ -74,11 +73,24 @@ const GetBookWithSales = async (req, res) => {
   }
 };
 
+const GetBookWithAllReviews = async (req, res) => {
+  try {
+    let bookId = parseInt(req.params.book_id);
+    const reviews = await Book.findByPk(bookId, {
+      include: Review
+    });
+    res.send(reviews);
+  } catch (error) {
+    throw error;
+  }
+};
+
 module.exports = {
   GetAllBooks,
   DeleteBookByID,
   CreateBook,
   UpdateBook,
   GetBookByID,
-  GetBookWithSales
+  GetBookWithSales,
+  GetBookWithAllReviews
 };

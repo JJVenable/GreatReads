@@ -6,7 +6,6 @@ const CreateSale = async (req, res) => {
     let userId = parseInt(req.params.user_id);
     let saleBody = {
       userId
-      // ...req.body
     };
     let sale = await Sale.create(saleBody);
     res.send(sale);
@@ -29,7 +28,7 @@ const GetSaleWithBooks = async (req, res) => {
     });
     res.send(sale);
   } catch (error) {
-    console.log(error);
+    throw error;
   }
 };
 
@@ -45,7 +44,6 @@ const GetSales = async (req, res) => {
       ]
     });
     res.send(result);
-    console.log(result);
   } catch (error) {
     throw error;
   }
@@ -61,9 +59,29 @@ const DeleteSale = async (req, res) => {
   }
 };
 
+const GetSalesByUserId = async (req, res) => {
+  try {
+    const curUserId = parseInt(req.params.user_id);
+    const result = await Sale.findAll({
+      where: { userId: curUserId },
+      include: [
+        {
+          model: Book,
+          as: 'items',
+          through: { attributes: [] }
+        }
+      ]
+    });
+    res.send(result);
+  } catch (error) {
+    throw error;
+  }
+};
+
 module.exports = {
   CreateSale,
   GetSaleWithBooks,
   GetSales,
-  DeleteSale
+  DeleteSale,
+  GetSalesByUserId
 };

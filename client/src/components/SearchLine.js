@@ -49,7 +49,7 @@ const SearchLine = (props) => {
       description: book.volumeInfo.description,
       author: book.volumeInfo.authors[0],
       price: book.saleInfo.listPrice.amount,
-      inventory: 0,
+      inventory: 5,
       image: book.volumeInfo.imageLinks.thumbnail,
       pageCount: book.volumeInfo.pageCount,
       publisher: book.volumeInfo.publisher,
@@ -63,7 +63,7 @@ const SearchLine = (props) => {
       maturityRating: book.volumeInfo.maturityRating,
       publicDomain: book.accessInfo.publicDomain
     };
-    console.log(newBook);
+
     props.addBook(newBook);
     setCurSearch({
       title: ``

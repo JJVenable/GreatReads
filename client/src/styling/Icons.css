@@ -1,10 +1,20 @@
-
 .fab {
   color: black;
-  background-color: white;
+  background-color: rgb(249, 247, 244);
 }
 
 .fas {
   color: black;
-  background-color:rgba(254,189,105, 1)
+  background-color: rgba(254, 189, 105, 1);
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+.citations{
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }

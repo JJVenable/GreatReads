@@ -37,7 +37,6 @@ export const SearchExternalService = async (title) => {
       `https://www.googleapis.com/books/v1/volumes?q=${title}&maxResults=20`
     );
     if (res.data.totalItems !== 0) {
-      console.log(res.data.items);
       return res.data.items;
     } else {
       console.log('no results');
@@ -52,7 +51,6 @@ export const SearchExternalService = async (title) => {
 export const PostBookService = async (body) => {
   try {
     const res = await client.post(`/books/post`, body);
-    console.log(res.data);
     return res.data;
   } catch (error) {
     throw error;

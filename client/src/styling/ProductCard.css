@@ -1,9 +1,17 @@
 .card-img {
   height: 150px;
+  border: 3px solid rgba(0, 0, 0, 0.5);
+  cursor: pointer;
 }
 
 .card-quantity {
   font-size: 15px;
+  position: relative;
+}
+
+.remove-Button {
+  position: relative;
+  bottom: 0px;
 }
 
 .card-price {
@@ -15,7 +23,7 @@
 }
 
 .card-rating {
-  height: 12px;
+  height: 30px;
 }
 
 .product-card {
@@ -29,4 +37,20 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.thumbs-line {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.far {
+  margin: 2px;
+}
+
+.stars-line {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

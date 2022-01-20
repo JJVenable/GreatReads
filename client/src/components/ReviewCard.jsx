@@ -1,11 +1,12 @@
 import React from 'react'
+import "../styling/ReviewCard.css";
 
 const ReviewCard = (props) => {
-  console.log(props)
   return (
-    <div>
-      <div>{props.review.comments}</div>
-        </div>
+    <div className="comment-rating-container">
+      <div>Comment: {props.review.comments} </div>
+      <div>Rating: {props.review.rating}</div>
+    </div>
   )
 }
 
