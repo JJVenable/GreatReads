@@ -57,7 +57,7 @@ function ProductCard(props) {
 
   //// delete Product 
   const delProduct = (id) => {
-    console.log('delete button clicked');
+    // console.log('delete button clicked');
     props.deleteProduct(id)
   }
   return (
