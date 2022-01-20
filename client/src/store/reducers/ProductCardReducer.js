@@ -22,7 +22,6 @@ const ProductCardReducer = (state = iState, action) => {
     //////////////////////
     case DELETE_PRODUCT:
       let adjustedProducts = state.products;
-      console.log(adjustedProducts);
       let targetIndex = {};
       adjustedProducts.map((product, index) => {
         if (product.id === action.payload) {
@@ -43,7 +42,6 @@ const ProductCardReducer = (state = iState, action) => {
         }
       });
       updatedProducts.splice(targetProductIndex, 1, action.payload);
-      console.log(updatedProducts);
       return { ...state, products: updatedProducts };
     //////////////////////
     case SEARCH_EXTERNAL:
@@ -52,7 +50,6 @@ const ProductCardReducer = (state = iState, action) => {
     case CREATE_BOOK:
       let newProductsList = state.products;
       newProductsList.push(action.payload);
-      console.log(newProductsList);
       return { ...state, products: newProductsList };
     ////////////////////
     case CLEAR_BOOK_SEARCH:

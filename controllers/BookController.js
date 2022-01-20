@@ -5,7 +5,6 @@ const GetAllBooks = async (req, res) => {
   try {
     const result = await Book.findAll({});
     res.send(result);
-    console.log(result);
   } catch (error) {
     throw error;
   }

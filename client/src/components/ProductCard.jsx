@@ -31,7 +31,7 @@ const mapDispatchToProps = (dispatch) => {
 
 function ProductCard(props) {
   const [stars, setStars] = useState(twoFive);
-  
+
   // increase Read count
   const increaseLikes = (id) => {
     const newInventoryCount = props.product.inventory + 1
@@ -72,23 +72,23 @@ function ProductCard(props) {
 
   ///// dtermine which picture to use for stars
   useEffect(() => {
-    if (props.product.averageRating < 0.75){
+    if (props.product.averageRating < 0.75) {
       setStars(zeroFive)
-    } else if (props.product.averageRating < 1.25){
+    } else if (props.product.averageRating < 1.25) {
       setStars(one)
-    } else if (props.product.averageRating < 1.75){
+    } else if (props.product.averageRating < 1.75) {
       setStars(oneFive)
-    } else if (props.product.averageRating < 2.25){
+    } else if (props.product.averageRating < 2.25) {
       setStars(two)
-    } else if (props.product.averageRating < 2.75){
+    } else if (props.product.averageRating < 2.75) {
       setStars(twoFive)
-    } else if (props.product.averageRating < 3.25){
+    } else if (props.product.averageRating < 3.25) {
       setStars(three)
-    } else if (props.product.averageRating < 3.75){
+    } else if (props.product.averageRating < 3.75) {
       setStars(threeFive)
-    } else if (props.product.averageRating < 4.25){
+    } else if (props.product.averageRating < 4.25) {
       setStars(four)
-    } else if (props.product.averageRating < 4.75){
+    } else if (props.product.averageRating < 4.75) {
       setStars(fourFive)
     } else {
       setStars(five)
@@ -98,27 +98,28 @@ function ProductCard(props) {
 
   //// delete Product 
   const delProduct = (id) => {
-    console.log('delete button clicked');
     props.deleteProduct(id)
   }
   return (
     <div className="product-card" >
-      <img className='card-img' src={props.product.image} onClick={props.onClick}/>
+      <img className='card-img' src={props.product.image} onClick={props.onClick} />
       <div className='card-name'>{props.product.name}</div>
       <div className='card-author'>by {props.product.author}</div>
 
       <div className='stars-line'>
         <img className='card-rating' src={stars} />
-        <div>{props.product.ratingsCount.toLocaleString("en-US")}</div>
+        <div>{props.product.ratingsCount}</div>
       </div>
       <div className='card-price'>${props.product.price}</div>
       <div className='buy-line'>
 
         <div className='card-quantity'>Likes: {props.product.inventory} </div>
-          <div className='thumbs-line'>
-            <i onClick={() => increaseLikes(props.product.id)} className="far fa-thumbs-up"></i>
-            <i onClick={() => decreaseLikes(props.product.id)} className="far fa-thumbs-down"></i>
-          </div>
+
+        <div className='thumbs-line'>
+          <i onClick={() => increaseLikes(props.product.id)} className="far fa-thumbs-up"></i>
+          <i onClick={() => decreaseLikes(props.product.id)} className="far fa-thumbs-down"></i>
+        </div>
+
         <div>
 
           {props.saleState.listStatus === true ? (
