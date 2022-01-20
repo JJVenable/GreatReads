@@ -15,3 +15,7 @@ div {
   height: 300px;
   border: 3px solid rgba(0, 0, 0, 0.5);
 }
+
+.book-title {
+  font-size: 30px;
+}
