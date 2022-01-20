@@ -1,4 +1,4 @@
-import {BASE_URL} from './index';
+import {BASE_URL} from '../globals'
 import axios from 'axios'
 
 export const CreateSaleService = async (userid) => {

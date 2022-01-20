@@ -1,9 +1,9 @@
-import axios from 'axios';
-
-export const BASE_URL =
-process.env.NODE_ENV === 'production'
-? `${window.location.origin}/api`
-: 'http://localhost:3001/api' 
+// import axios from 'axios';
+import { BASE_URL } from '../globals'
+// export const BASE_URL =
+// process.env.NODE_ENV === 'production'
+// ? `${window.location.origin}/api`
+// : 'http://localhost:3001/api' 
 
 
 // Intercepts every request axios makes

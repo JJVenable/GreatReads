@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { BASE_URL } from './index'
+import { BASE_URL } from '../globals'
 
 
 export const SignInUser = async (data) => {
