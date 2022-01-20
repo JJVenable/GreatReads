@@ -15,11 +15,8 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 function ViewLists(props) {
-  console.log(props.user);
   useEffect(() => {
-    console.log(props.saleState.lists);
     props.fetchLists(props.user.id);
-    console.log(props.saleState.lists);
   }, []);
 
   return (
