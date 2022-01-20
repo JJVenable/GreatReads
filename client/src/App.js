@@ -18,7 +18,7 @@ function App(props) {
 
   const checkToken = async () => {
     //If a token exists, sends token to localstorage to persist logged in user
-    const user = CheckSession();
+    const user = await CheckSession();
     setUser(user);
     toggleAuthenticated(true);
   };
