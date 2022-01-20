@@ -4,12 +4,14 @@ import {
   DISPLAY_BOOK_IN_SALE,
   DISPLAY_ASSOCIATION,
   SET_LIST_STATUS,
-  CLEAR_LIST
+  CLEAR_LIST,
+  SET_LISTS
 } from '../types';
 import {
   CreateSaleService,
   AddBookToSaleService,
-  DisplayBookInSaleService
+  DisplayBookInSaleService,
+  LoadListsService
 } from '../../services/SaleService';
 
 export const CreateSaleAction = (userId) => {
@@ -48,6 +50,20 @@ export const DisplayBookInSaleAction = (saleId) => {
       dispatch({
         type: DISPLAY_BOOK_IN_SALE,
         payload: saleWithBooks
+      });
+    } catch (error) {
+      throw error;
+    }
+  };
+};
+
+export const LoadListsAction = (userId) => {
+  return async (dispatch) => {
+    try {
+      const lists = await LoadListsService(userId);
+      dispatch({
+        type: SET_LISTS,
+        payload: lists
       });
     } catch (error) {
       throw error;

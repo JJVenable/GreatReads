@@ -4,6 +4,7 @@ import {
   NewReviewAction,
   CreateReviewAction
 } from '../store/actions/ProductDetailsAction';
+import "../styling/ReviewForm.css";
 
 const mapStateToProps = ({ detailState }) => {
   return { detailState };
@@ -16,7 +17,7 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-const ReviewForm = (props) =>  {
+const ReviewForm = (props) => {
 
   const handleChange = (event) => {
     props.newReview({
@@ -32,11 +33,11 @@ const ReviewForm = (props) =>  {
 
   return (
     <div>
-      <div>Add a review here: </div>
-      <input type="text" name="comments" placeholder="Enter comment" value={props.detailState.newReview.comments} onChange={handleChange}/>  
-      <input type="text" name="rating" placeholder="Enter rating" value={props.detailState.newReview.rating} onChange={handleChange}/>  
+      <div className="add-review-text">Add your own review: </div>
+      <input type="text" name="comments" placeholder="Enter comment" value={props.detailState.newReview.comments} onChange={handleChange} />
+      <input type="text" name="rating" placeholder="Enter rating" value={props.detailState.newReview.rating} onChange={handleChange} />
       <button onClick={handleSubmit}>Submit review</button>
-        </div>
+    </div>
   )
 }
 
