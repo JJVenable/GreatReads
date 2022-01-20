@@ -98,6 +98,7 @@ function ProductCard(props) {
 
   //// delete Product 
   const delProduct = (id) => {
+
     props.deleteProduct(id)
   }
   return (
