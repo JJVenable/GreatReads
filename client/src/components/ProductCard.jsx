@@ -114,13 +114,10 @@ function ProductCard(props) {
       <div className='buy-line'>
 
         <div className='card-quantity'>Likes: {props.product.inventory} </div>
-
-
         <div className='thumbs-line'>
           <i onClick={() => increaseLikes(props.product.id)} className="far fa-thumbs-up"></i>
           <i onClick={() => decreaseLikes(props.product.id)} className="far fa-thumbs-down"></i>
         </div>
-
         <div>
 
           {props.saleState.listStatus === true ? (

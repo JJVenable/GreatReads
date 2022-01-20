@@ -9,6 +9,7 @@ function About() {
       {/* Grant */}
       <div>
 
+
         <h3>Grant Menke</h3>
         <i className="fab fa-github"></i>
         <a href="https://github.com/gmenke54" target="_blank" rel="noopener noreferrer" className="link">GitHub</a>
@@ -23,6 +24,7 @@ function About() {
       <h3>Lieba Pil</h3>
       <div>
 
+
         <i className="fab fa-github"></i>
         <a href="https://github.com/liebapil" target="_blank" rel="noopener noreferrer" className="link">GitHub</a>
         <i className="fab fa-github"></i>
@@ -30,10 +32,12 @@ function About() {
         <a href="https://www.linkedin.com/in/lieba-pil/" target="_blank" rel="noopener noreferrer" className="link">LinkedIn</a>
         <i className="fab fa-linkedin"></i></div>
 
+
       {/* Doran */}
       <h3>Doran Smith</h3>
       <div>
         <i className="fab fa-github"></i>
+
         <a href="https://github.com/andora814" target="_blank" rel="noopener noreferrer" className="link">GitHub</a>
         <i className="fab fa-github"></i>
         <i className="fab fa-linkedin"></i>
