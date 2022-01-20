@@ -8,6 +8,7 @@ function About() {
       <h2>Follow the Devs</h2>
       {/* Grant */}
       <div>
+
         <h3>Grant Menke</h3>
         <i className="fab fa-github"></i>
         <a href="https://github.com/gmenke54" target="_blank" rel="noopener noreferrer" className="link">GitHub</a>
@@ -15,11 +16,13 @@ function About() {
         <i className="fab fa-linkedin"></i>
         <a href="https://www.linkedin.com/in/grantmenke/" target="_blank" rel="noopener noreferrer" className="link">LinkedIn</a>
         <i className="fab fa-linkedin"></i>
+
       </div>
 
       {/* Lieba */}
       <h3>Lieba Pil</h3>
       <div>
+
         <i className="fab fa-github"></i>
         <a href="https://github.com/liebapil" target="_blank" rel="noopener noreferrer" className="link">GitHub</a>
         <i className="fab fa-github"></i>
@@ -36,17 +39,20 @@ function About() {
         <i className="fab fa-linkedin"></i>
         <a href="https://www.linkedin.com/in/dorancsmith/" target="_blank" rel="noopener noreferrer" className="link">LinkedIn</a>
         <i className="fab fa-linkedin"></i>
+
       </div>
 
       {/* Joseph */}
       <h3>Joseph Venable</h3>
       <div>
+
         <i className="fab fa-github"></i>
         <a href="https://github.com/JJVenable" target="_blank" rel="noopener noreferrer" className="link">GitHub</a>
         <i className="fab fa-github"></i>
         <i className="fab fa-linkedin"></i>
         <a href="https://www.linkedin.com/in/jjvenable" target="_blank" rel="noopener noreferrer" className="link">LinkedIn</a>
         <i className="fab fa-linkedin"></i>
+
       </div>
 
       <h4>Resources</h4>
