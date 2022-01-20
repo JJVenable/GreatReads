@@ -33,7 +33,6 @@ const SaleReducer = (state = iState, action) => {
         return { ...state, listStatus: false };
       }
     case SET_LISTS:
-      console.log(action.payload);
       return { ...state, lists: action.payload };
     case CLEAR_LIST:
       return { ...state, currentSaleWithBooks: { items: [] } };
