@@ -1,0 +1,52 @@
+.sug-list-cont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 30px 15px;
+  padding: 5px;
+  border: 3px solid grey;
+  border-radius: 10px;
+  width: 375px;
+}
+
+.sug-list-cont:hover {
+  background-color: rgb(235, 235, 235);
+}
+
+.list-line {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 375px;
+}
+
+.list-pic {
+  width: 65px;
+}
+
+.list-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.my-list {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.list-name {
+  font-weight: 600;
+}
+
+.sug-lists-cont {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.list-pic {
+  margin: 0 3px 5px 0;
+  border-radius: 5px;
+}

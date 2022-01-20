@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { LoadListsAction } from '../store/actions/SaleAction';
 import ListCard from '../components/ListCard';
+import '../styling/MyList.css';
 
 const mapStateToProps = ({ saleState }) => {
   return { saleState };
@@ -23,9 +24,8 @@ function ViewLists(props) {
 
   return (
     <div>
-      <div>My Lists</div>
-      <div>
-        {/* FIX THIS TO RERENDER AFTER LISTS LOAD */}
+      <div className="my-list">My Lists</div>
+      <div className="sug-lists-cont">
         {props.saleState.lists.map((list) => {
           return <ListCard key={list.id} list={list} />;
         })}

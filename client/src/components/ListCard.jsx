@@ -1,9 +1,17 @@
 import React from 'react';
+import ListLine from './ListLine';
 
 export default function ListCard(props) {
+  console.log(props.list.items)
   return (
-    <div>
-      {props.list.id}
-    </div>
+
+            <div className='sug-list-cont'>
+            <div className='sug-list-title'>Suggestion List #{props.list.id}</div>
+            {props.list.items.map((book) => {
+              return <ListLine key={book.id} book={book} />
+            })}
+          </div>
+
+
   );
 }
