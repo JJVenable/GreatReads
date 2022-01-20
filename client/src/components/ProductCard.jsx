@@ -42,6 +42,9 @@ function ProductCard(props) {
   // decrease Read count
   const decreaseLikes = (id) => {
     const newInventoryCount = props.product.inventory - 1
+    if (newInventoryCount<0){
+      delProduct(props.product.id)
+    }
     const newBody = { "inventory": newInventoryCount }
     props.updateProduct(id, newBody)
   }
@@ -127,7 +130,6 @@ function ProductCard(props) {
             </div>
           ) : (null)}
         </div>
-        <button onClick={() => delProduct(props.product.id)} className="remove-Button">Remove Book</button>
       </div>
     </div>
   );
