@@ -1,13 +1,9 @@
-// import axios from 'axios';
+import axios from 'axios';
 import { BASE_URL } from '../globals'
-// export const BASE_URL =
-// process.env.NODE_ENV === 'production'
-// ? `${window.location.origin}/api`
-// : 'http://localhost:3001/api' 
-
+const client = axios.create({ baseURL: BASE_URL });
 
 // Intercepts every request axios makes
-BASE_URL.interceptors.request.use(
+client.interceptors.request.use(
   (config) => {
     // Reads the token in localstorage
     const token = localStorage.getItem('token');
@@ -21,4 +17,4 @@ BASE_URL.interceptors.request.use(
   (error) => Promise.reject(error)
 );
 
-
+export default client;

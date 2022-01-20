@@ -1,10 +1,10 @@
-import { BASE_URL } from '../globals';
-import axios from 'axios';
+import client from './';
+import axios from 'axios'
 
 /// get all books
 export const GetProducts = async () => {
   try {
-    const res = await axios.get(`${BASE_URL}/books/all`);
+    const res = await client.get('/books/all');
     return res.data;
   } catch (error) {
     throw error;
@@ -14,7 +14,7 @@ export const GetProducts = async () => {
 /// delete book by id
 export const DeleteProductService = async (id) => {
   try {
-    await axios.delete(`${BASE_URL}/books/delete/${id}`);
+    await client.delete(`/books/delete/${id}`);
   } catch (error) {
     throw error;
   }
@@ -23,7 +23,7 @@ export const DeleteProductService = async (id) => {
 /// update book
 export const UpdateProductService = async (id, body) => {
   try {
-    const res = await axios.put(`${BASE_URL}/books/update/${id}`, body);
+    const res = await client.put(`/books/update/${id}`, body);
     return res.data[1][0];
   } catch (error) {
     throw error;
@@ -50,7 +50,7 @@ export const SearchExternalService = async (title) => {
 // post a book to the database
 export const PostBookService = async (body) => {
   try {
-    const res = await axios.post(`${BASE_URL}/books/post`, body);
+    const res = await client.post(`/books/post`, body);
     return res.data;
   } catch (error) {
     throw error;

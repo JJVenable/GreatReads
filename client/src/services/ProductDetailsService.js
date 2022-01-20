@@ -1,10 +1,10 @@
-import { BASE_URL } from '../globals';
-import axios from 'axios';
+import client from './';
+
 
 /// get product details by book id
 export const GetProductDetailsService = async (bookId) => {
   try {
-    const res = await axios.get(`${BASE_URL}/books/details/${bookId}`);
+    const res = await client.get(`/books/details/${bookId}`);
     return res.data;
   } catch (error) {
     throw error;
@@ -15,7 +15,7 @@ export const GetProductDetailsService = async (bookId) => {
 // this will eventually need to be get all product reviews by book id (regardless of user id)
 export const GetBookWithAllReviewsService = async (bookId) => {
   try {
-    const res = await axios.get(`${BASE_URL}/books/reviews/${bookId}`);
+    const res = await client.get(`/books/reviews/${bookId}`);
     return res.data;
   } catch (error) {
     throw error;
@@ -25,7 +25,7 @@ export const GetBookWithAllReviewsService = async (bookId) => {
 // create review by book id and user id
 export const CreateReviewService = async (userId, bookId, body) => {
   try {
-    const res = await axios.post(`${BASE_URL}/reviews/${userId}/${bookId}`, body);
+    const res = await client.post(`/reviews/${userId}/${bookId}`, body);
     return res.data;
   } catch (error) {
     throw error;
