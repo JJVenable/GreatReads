@@ -1,8 +1,9 @@
-import client from './';
+import {BASE_URL} from './index';
+import axios from 'axios'
 
 export const CreateSaleService = async (userid) => {
   try {
-    const res = await client.post(`/sales/${userid}`);
+    const res = await axios.post(`${BASE_URL}/sales/${userid}`);
     return res.data;
   } catch (error) {
     throw error;
@@ -11,7 +12,7 @@ export const CreateSaleService = async (userid) => {
 
 export const AddBookToSaleService = async (body) => {
   try {
-    await client.post('/checkout/new', body);
+    await axios.post(`${BASE_URL}/checkout/new`, body);
   } catch (error) {
     throw error;
   }
@@ -19,7 +20,7 @@ export const AddBookToSaleService = async (body) => {
 
 export const DisplayBookInSaleService = async (saleId) => {
   try {
-    const res = await client.get(`/sales/details/${saleId}`);
+    const res = await axios.get(`${BASE_URL}/sales/details/${saleId}`);
     return res.data;
   } catch (error) {
     throw error;
@@ -28,7 +29,7 @@ export const DisplayBookInSaleService = async (saleId) => {
 
 export const LoadListsService = async (userId) => {
   try {
-    const res = await client.get(`sales/lists/${userId}`);
+    const res = await axios.get(`${BASE_URL}/sales/lists/${userId}`);
     return res.data;
   } catch (error) {
     throw error;

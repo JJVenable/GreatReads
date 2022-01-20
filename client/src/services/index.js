@@ -1,15 +1,13 @@
 import axios from 'axios';
 
-const client = axios.create({ baseURL: 
-  //heroku
+export const BASE_URL =
 process.env.NODE_ENV === 'production'
 ? `${window.location.origin}/api`
-: 'http://localhost:3001/api' })
-//heroku 
+: 'http://localhost:3001/api' 
 
 
 // Intercepts every request axios makes
-client.interceptors.request.use(
+BASE_URL.interceptors.request.use(
   (config) => {
     // Reads the token in localstorage
     const token = localStorage.getItem('token');
@@ -23,4 +21,4 @@ client.interceptors.request.use(
   (error) => Promise.reject(error)
 );
 
-export default client;
+
