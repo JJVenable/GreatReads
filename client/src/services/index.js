@@ -4,7 +4,7 @@ const client = axios.create({ baseURL:
   //heroku
 process.env.NODE_ENV === 'production'
 ? `${window.location.origin}/api`
-: '<your local backend server>/api' })
+: 'http://localhost:3001/api' })
 //heroku 
 
 
