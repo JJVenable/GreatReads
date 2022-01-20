@@ -7,8 +7,11 @@ export default function ReviewsContainer(props) {
   console.log('i hope this works')
   return (
     <div> 
-  {props.reviews.reviews.Reviews.map((review) => ( 
-        <ReviewCard review={review} /> 
+  {props.reviews.reviews.Reviews.map((review, index) => ( 
+        <ReviewCard 
+        key={index}
+        review={review} 
+        /> 
       ))} 
     </div>
   )
