@@ -29,12 +29,12 @@ function NewSaleCard(props) {
         <div>
           <div className="new-sale-card">
             <p>Suggestion List #{props.saleState.currentSale.id}</p>
-              {props.saleState.currentSaleWithBooks.items.map((product, index) => (
-                <ProductLine 
-                  key={index}
-                  product={product} 
-                />
-              ))}
+            {props.saleState.currentSaleWithBooks.items.map((product, index) => (
+              <ProductLine
+                key={index}
+                product={product}
+              />
+            ))}
             <button onClick={saveList}>Save List</button>
           </div>
         </div>
