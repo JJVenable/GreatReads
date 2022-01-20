@@ -1,5 +1,5 @@
 import client from './';
-import axios from 'axios';
+import axios from 'axios'
 
 /// get all books
 export const GetProducts = async () => {

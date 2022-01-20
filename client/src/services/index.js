@@ -1,12 +1,6 @@
 import axios from 'axios';
-
-const client = axios.create({ baseURL: 
-  //heroku
-process.env.NODE_ENV === 'production'
-? `${window.location.origin}/api`
-: 'http://localhost:3001/api' })
-//heroku 
-
+import { BASE_URL } from '../globals'
+const client = axios.create({ baseURL: BASE_URL });
 
 // Intercepts every request axios makes
 client.interceptors.request.use(
