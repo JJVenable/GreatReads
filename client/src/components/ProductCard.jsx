@@ -35,17 +35,29 @@ function ProductCard(props) {
   // increase Read count
   const increaseLikes = (id) => {
     const newInventoryCount = props.product.inventory + 1
-    const newBody = { "inventory": newInventoryCount }
+    const newAverageRating = props.product.averageRating + 0.1
+    const newRatingsCount = props.product.ratingsCount + 1
+    const newBody = { 
+      "inventory": newInventoryCount,
+      "averageRating": newAverageRating,
+      "ratingsCount": newRatingsCount
+    }
     props.updateProduct(id, newBody)
   }
 
   // decrease Read count
   const decreaseLikes = (id) => {
     const newInventoryCount = props.product.inventory - 1
+    const newAverageRating = props.product.averageRating - 0.1
+    const newRatingsCount = props.product.ratingsCount + 1
     if (newInventoryCount<0){
       delProduct(props.product.id)
     }
-    const newBody = { "inventory": newInventoryCount }
+    const newBody = { 
+      "inventory": newInventoryCount,
+      "averageRating": newAverageRating,
+      "ratingsCount": newRatingsCount
+    }
     props.updateProduct(id, newBody)
   }
 
@@ -96,7 +108,7 @@ function ProductCard(props) {
     } else {
       setStars(five)
     }
-  }, []);
+  }, [props.product.averageRating]);
 
 
   //// delete Product 

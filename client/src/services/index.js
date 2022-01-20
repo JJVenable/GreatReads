@@ -1,6 +1,6 @@
 import axios from 'axios';
-
-const client = axios.create({ baseURL: 'http://localhost:3001/api' });
+import { BASE_URL } from '../globals'
+const client = axios.create({ baseURL: BASE_URL });
 
 // Intercepts every request axios makes
 client.interceptors.request.use(
