@@ -1,0 +1,17 @@
+.book-container, .buy-book-container, .review-container, .review-form-container {
+  display: flex;
+  border-bottom: 0.8px solid lightgrey;
+}
+
+.book-title, .book-author, .book-description, .book-publisher, .book-rating {
+  text-align: left;
+}
+
+div {
+  padding: 8px;
+}
+
+.book-image {
+  height: 300px;
+  border: 3px solid rgba(0, 0, 0, 0.5);
+}

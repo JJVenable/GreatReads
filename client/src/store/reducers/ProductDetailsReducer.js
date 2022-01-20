@@ -4,7 +4,6 @@ import {
   NEW_REVIEW,
   GET_BOOK_WITH_ALL_REVIEWS
 } from '../types';
-
 const iState = {
   details: {},
   reviews: {
@@ -17,7 +16,6 @@ const iState = {
     rating: ''
   }
 };
-
 const ProductDetailsReducer = (state = iState, action) => {
   switch (action.type) {
     case GET_PRODUCT_DETAILS:
@@ -25,23 +23,14 @@ const ProductDetailsReducer = (state = iState, action) => {
     case GET_BOOK_WITH_ALL_REVIEWS:
       return { ...state, reviews: { reviews: action.payload } };
     case CREATE_REVIEW:
-      console.log(action.payload);
       let newReviewList = state.reviews.reviews.Reviews;
-      console.log(newReviewList);
       newReviewList.push(action.payload);
-      console.log(newReviewList);
       return {
-        ...state
-        // reviews: {
-        //   ...state.reviews.reviews,
-        //   reviews: {
-        //     Reviews: [...state.reviews.reviews.Reviews, newReviewList]
-        //   }
-        // },
-        // newReview: {
-        //   comments: '',
-        //   rating: ''
-        // }
+        ...state,
+        newReview: {
+          comments: '',
+          rating: ''
+        }
       };
     case NEW_REVIEW:
       return {
@@ -52,5 +41,4 @@ const ProductDetailsReducer = (state = iState, action) => {
       return { ...state };
   }
 };
-
 export default ProductDetailsReducer;
