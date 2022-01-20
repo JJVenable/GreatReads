@@ -27,7 +27,7 @@ const ProductDetails = (props) => {
   }, []);
 
   return (
-    <div>
+    <div className="details-page-cont">
       <div className="book-container">
         <img src={props.detailState.details.image} className="book-image" />
         <div className="title-author-description-container">
@@ -50,7 +50,6 @@ const ProductDetails = (props) => {
         </div>
       </div>
       <div className="buy-book-container">
-        <div>GET A COPY</div>
         <a
           href={props.detailState.details.infoLink}
           target="_blank"
@@ -60,7 +59,7 @@ const ProductDetails = (props) => {
         </a>
       </div>
       <div className="review-container">
-        <div>REVIEWS</div>
+        <div>Reviews: </div>
         <ReviewsContainer reviews={props.detailState.reviews} />
       </div>
       <div className="review-form-container">
