@@ -48,6 +48,14 @@ function About() {
       <a href="https://www.linkedin.com/in/jjvenable" target="_blank" rel="noopener noreferrer" class="link">LinkedIn</a>
       <i class="fab fa-linkedin"></i> 
       </div>
+
+      <h4>Resources</h4>
+      <div className='citations'>
+        <a href='https://www.canva.com' target="_blank" rel="noopener noreferrer" class="link">Canvas</a>
+        <a href='https://developers.google.com/books' target="_blank" rel="noopener noreferrer" class="link">Google API</a>
+        <a href='https://www.geeksforgeeks.org/why-we-use-then-method-in-javascript' target="_blank" rel="noopener noreferrer" class="link">Canvas</a>
+        <a href='https://fontawesome.com' target="_blank" rel="noopener noreferrer" class="link">Font Awesome</a>
+      </div>
     
     </div>
   );

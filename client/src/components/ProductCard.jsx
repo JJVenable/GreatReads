@@ -23,8 +23,15 @@ const mapDispatchToProps = (dispatch) => {
 function ProductCard(props) {
   
   // increase Read count
-  const readBook = (id) => {
+  const increaseLikes = (id) => {
     const newInventoryCount = props.product.inventory + 1
+    const newBody = { "inventory": newInventoryCount }
+    props.updateProduct(id, newBody)
+  }
+
+  // decrease Read count
+  const decreaseLikes = (id) => {
+    const newInventoryCount = props.product.inventory - 1
     const newBody = { "inventory": newInventoryCount }
     props.updateProduct(id, newBody)
   }
@@ -69,7 +76,12 @@ function ProductCard(props) {
       <img className='card-rating' src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.libbyhellmann.com%2Fwp-content%2Fuploads%2F2015%2F11%2F5stars.png&f=1&nofb=1" />
       <div className='buy-line'>
         <div className='card-quantity'>Class likes: {props.product.inventory} </div>
-        <button onClick={() => readBook(props.product.id)}>I Like this</button>
+        <button onClick={() => increaseLikes(props.product.id)}>
+        <i class="far fa-thumbs-up"></i>
+        </button>
+        <button onClick={() => decreaseLikes(props.product.id)}>
+        <i class="far fa-thumbs-down"></i>
+        </button>
         <div>
           {props.saleState.listStatus === true ? (
             <div>

@@ -13,3 +13,8 @@
   color: black;
   cursor: pointer;
 }
+.citations{
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
