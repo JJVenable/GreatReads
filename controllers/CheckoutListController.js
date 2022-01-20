@@ -7,7 +7,6 @@ const CreateCheckoutList = async (req, res) => {
       ...req.body
     };
     await CheckoutList.create(body);
-    console.log('done');
     res.send(body);
   } catch (error) {
     console.log(error);
