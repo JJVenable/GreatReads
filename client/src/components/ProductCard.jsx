@@ -1,9 +1,18 @@
 import { connect } from 'react-redux';
 import '../styling/ProductCard.css'
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { RemoveProduct, UpdateProduct } from '../store/actions/ProductCardActions';
 import { AddBookToSaleAction, DisplayBookInSaleAction, DisplayAssociationAction } from '../store/actions/SaleAction';
-
+import zeroFive from '../images/stars/0.5.png'
+import one from '../images/stars/1.png'
+import oneFive from '../images/stars/1.5.png'
+import two from '../images/stars/2.png'
+import twoFive from '../images/stars/2.5.png'
+import three from '../images/stars/3.png'
+import threeFive from '../images/stars/3.5.png'
+import four from '../images/stars/4.png'
+import fourFive from '../images/stars/4.5.png'
+import five from '../images/stars/5.png'
 
 
 const mapStateToProps = ({ productCardState, saleState }) => {
@@ -21,6 +30,7 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 function ProductCard(props) {
+  const [stars, setStars] = useState(twoFive);
   
   // increase Read count
   const increaseLikes = (id) => {
@@ -40,7 +50,6 @@ function ProductCard(props) {
   /// buy product/ reduce inventory
   // NOW add to personal list
   const buyProduct = (id) => {
-
     props.addBookToSale({
       saleId: props.saleState.currentSale.id,
       bookId: id
@@ -59,8 +68,33 @@ function ProductCard(props) {
         console.log('rejected display association')
       }
     )
-
   }
+
+  ///// dtermine which picture to use for stars
+  useEffect(() => {
+    if (props.product.averageRating < 0.75){
+      setStars(zeroFive)
+    } else if (props.product.averageRating < 1.25){
+      setStars(one)
+    } else if (props.product.averageRating < 1.75){
+      setStars(oneFive)
+    } else if (props.product.averageRating < 2.25){
+      setStars(two)
+    } else if (props.product.averageRating < 2.75){
+      setStars(twoFive)
+    } else if (props.product.averageRating < 3.25){
+      setStars(three)
+    } else if (props.product.averageRating < 3.75){
+      setStars(threeFive)
+    } else if (props.product.averageRating < 4.25){
+      setStars(four)
+    } else if (props.product.averageRating < 4.75){
+      setStars(fourFive)
+    } else {
+      setStars(five)
+    }
+  }, []);
+
 
   //// delete Product 
   const delProduct = (id) => {
@@ -72,24 +106,28 @@ function ProductCard(props) {
       <img className='card-img' src={props.product.image} onClick={props.onClick}/>
       <div className='card-name'>{props.product.name}</div>
       <div className='card-author'>by {props.product.author}</div>
+
+      <div className='stars-line'>
+        <img className='card-rating' src={stars} />
+        <div>{props.product.ratingsCount.toLocaleString("en-US")}</div>
+      </div>
       <div className='card-price'>${props.product.price}</div>
-      <img className='card-rating' src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.libbyhellmann.com%2Fwp-content%2Fuploads%2F2015%2F11%2F5stars.png&f=1&nofb=1" />
       <div className='buy-line'>
-        <div className='card-quantity'>Class likes: {props.product.inventory} </div>
-        <button onClick={() => increaseLikes(props.product.id)}>
-        <i class="far fa-thumbs-up"></i>
-        </button>
-        <button onClick={() => decreaseLikes(props.product.id)}>
-        <i class="far fa-thumbs-down"></i>
-        </button>
+
+        <div className='card-quantity'>Likes: {props.product.inventory} </div>
+          <div className='thumbs-line'>
+            <i onClick={() => increaseLikes(props.product.id)} class="far fa-thumbs-up"></i>
+            <i onClick={() => decreaseLikes(props.product.id)} class="far fa-thumbs-down"></i>
+          </div>
         <div>
+
           {props.saleState.listStatus === true ? (
             <div>
               <button onClick={() => buyProduct(props.product.id)}>Add to Personal list</button>
             </div>
           ) : (null)}
         </div>
-        <button onClick={() => delProduct(props.product.id)} className="remove-Button">Remove Product</button>
+        <button onClick={() => delProduct(props.product.id)} className="remove-Button">Remove Book</button>
       </div>
     </div>
   );

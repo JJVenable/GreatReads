@@ -23,7 +23,7 @@
 }
 
 .card-rating {
-  height: 12px;
+  height: 30px;
 }
 
 .product-card {
@@ -37,4 +37,20 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.thumbs-line {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.far {
+  margin: 2px;
+}
+
+.stars-line {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
