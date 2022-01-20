@@ -109,15 +109,15 @@ function ProductCard(props) {
 
       <div className='stars-line'>
         <img className='card-rating' src={stars} />
-        <div>{props.product.ratingsCount.toLocaleString("en-US")}</div>
+        <div>{props.product.ratingsCount}</div>
       </div>
       <div className='card-price'>${props.product.price}</div>
       <div className='buy-line'>
 
         <div className='card-quantity'>Likes: {props.product.inventory} </div>
           <div className='thumbs-line'>
-            <i onClick={() => increaseLikes(props.product.id)} class="far fa-thumbs-up"></i>
-            <i onClick={() => decreaseLikes(props.product.id)} class="far fa-thumbs-down"></i>
+            <i onClick={() => increaseLikes(props.product.id)} className="far fa-thumbs-up"></i>
+            <i onClick={() => decreaseLikes(props.product.id)} className="far fa-thumbs-down"></i>
           </div>
         <div>
 
