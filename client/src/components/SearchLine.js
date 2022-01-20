@@ -63,7 +63,7 @@ const SearchLine = (props) => {
       maturityRating: book.volumeInfo.maturityRating,
       publicDomain: book.accessInfo.publicDomain
     };
-    console.log(newBook);
+
     props.addBook(newBook);
     setCurSearch({
       title: ``

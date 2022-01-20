@@ -26,7 +26,6 @@ export const GetBookWithAllReviewsService = async (bookId) => {
 export const CreateReviewService = async (userId, bookId, body) => {
   try {
     const res = await client.post(`/reviews/${userId}/${bookId}`, body);
-    console.log(res.data);
     return res.data;
   } catch (error) {
     throw error;
