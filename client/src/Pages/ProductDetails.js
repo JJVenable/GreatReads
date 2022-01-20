@@ -7,6 +7,7 @@ import {
 import ReviewForm from '../components/ReviewForm';
 import ReviewCard from '../components/ReviewCard';
 import ReviewsContainer from '../components/ReviewsContainer';
+import '../styling/DetailsPage.css';
 
 const mapStateToProps = ({ detailState }) => {
   return { detailState };
@@ -27,18 +28,44 @@ const ProductDetails = (props) => {
 
   return (
     <div>
-      <div>{props.detailState.details.name}</div>
-      <div>By: {props.detailState.details.author}</div>
-      <img src={props.detailState.details.image} />
-      <div>Text Snippet: {props.detailState.details.textSnippet}</div>
-      <div>Description: {props.detailState.details.description}</div>
-      <div>Publisher: {props.detailState.details.publisher}</div>
-      <div>Date Published: {props.detailState.details.publishedDate}</div>
-      <a href={props.detailState.details.infoLink} target="_blank">
-        Buy this book!
-      </a>
-      <ReviewForm user={props.user} />
-      <ReviewsContainer reviews={props.detailState.reviews} />
+      <div className="book-container">
+        <img src={props.detailState.details.image} className="book-image" />
+        <div className="title-author-description-container">
+          <div className="book-title">
+            <strong>{props.detailState.details.name}</strong>
+          </div>
+          <div className="book-author">
+            by {props.detailState.details.author}
+          </div>
+          <div className="book-rating">
+            Rating: {props.detailState.details.averageRating}
+          </div>
+          <div className="book-description">
+            {props.detailState.details.description}
+          </div>
+          <div className="book-publisher">
+            Published {props.detailState.details.publishedDate} by{' '}
+            {props.detailState.details.publisher}
+          </div>
+        </div>
+      </div>
+      <div className="buy-book-container">
+        <div>GET A COPY</div>
+        <a
+          href={props.detailState.details.infoLink}
+          target="_blank"
+          className="book-info-link"
+        >
+          Google Store ${props.detailState.details.price}
+        </a>
+      </div>
+      <div className="review-container">
+        <div>REVIEWS</div>
+        <ReviewsContainer reviews={props.detailState.reviews} />
+      </div>
+      <div className="review-form-container">
+        <ReviewForm user={props.user} />
+      </div>
     </div>
   );
 };
