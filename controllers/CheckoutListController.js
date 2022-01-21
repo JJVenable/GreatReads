@@ -9,7 +9,7 @@ const CreateCheckoutList = async (req, res) => {
     await CheckoutList.create(body);
     res.send(body);
   } catch (error) {
-    console.log(error);
+    throw error;
   }
 };
 
