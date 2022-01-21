@@ -32,7 +32,7 @@ const Home = (props) => {
 
     props.postSale(props.user.id);
     props.toggleListStatus();
-    console.log(props.saleState.listStatus);
+   
 
   };
 
