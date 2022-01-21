@@ -57,8 +57,9 @@ const Register = async (req, res) => {
 // };
 
 const CheckSession = async (req, res) => {
-  const { payload } = res.locals;
-  res.send(payload);
+  const { token } = res.locals;
+  console.log(res.locals);
+  res.send(token);
 };
 
 module.exports = {
