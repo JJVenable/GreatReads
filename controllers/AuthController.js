@@ -35,26 +35,7 @@ const Register = async (req, res) => {
   }
 };
 
-// const UpdatePassword = async (req, res) => {
-//   try {
-//     const user = await User.findOne({ where: { email: req.body.email } });
-//     if (
-//       user &&
-//       (await middleware.comparePassword(
-//         user.dataValues.passwordDigest,
-//         req.body.oldPassword
-//       ))
-//     ) {
-//       let passwordDigest = await middleware.hashPassword(req.body.newPassword);
 
-//       await user.update({ passwordDigest });
-//       return res.send({ status: 'Success', msg: 'Password Updated' });
-//     }
-//     res.status(401).send({ status: 'Error', msg: 'Invalid Credentials' });
-//   } catch (error) {
-//     throw error;
-//   }
-// };
 
 const CheckSession = async (req, res) => {
   const { payload } = res.locals;
@@ -65,5 +46,5 @@ module.exports = {
   Login,
   Register,
   CheckSession
-  // UpdatePassword
+ 
 };
