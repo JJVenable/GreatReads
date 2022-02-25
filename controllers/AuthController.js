@@ -3,6 +3,7 @@ const middleware = require('../middleware');
 
 const Login = async (req, res) => {
   try {
+    console.log('running auth controller');
     const user = await User.findOne({
       where: { email: req.body.email },
       raw: true
@@ -35,16 +36,20 @@ const Register = async (req, res) => {
   }
 };
 
-
-
 const CheckSession = async (req, res) => {
   const { payload } = res.locals;
   res.send(payload);
+  // try {
+  //   const { payload } = res.locals;
+  //   // res.send(payload)
+  //   return res.send(payload);
+  // } catch (error) {
+  //   throw error;
+  // }
 };
 
 module.exports = {
   Login,
   Register,
   CheckSession
- 
 };
