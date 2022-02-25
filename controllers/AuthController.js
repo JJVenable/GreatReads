@@ -3,7 +3,6 @@ const middleware = require('../middleware');
 
 const Login = async (req, res) => {
   try {
-    console.log('running auth controller');
     const user = await User.findOne({
       where: { email: req.body.email },
       raw: true
