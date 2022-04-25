@@ -1,4 +1,4 @@
-# Congo
+# Great Reads
 ## January 2022
 ## By:
 * Grant Menke, 
