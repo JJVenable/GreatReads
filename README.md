@@ -32,12 +32,13 @@
 5. Heroku
 
 ### ***Getting Started***
-  1) Navigate to [Deployed Project](https://greatreadz.herokuapp.com/).
-  2) Create an account. Email must include an "@" symbol. 
-  3) Search for any book, and click on it to add the book to a shared library on the Home page.
-  4) Click on "Make A Suggestion List" and "Add to Personal List" to create a list tied to your user.
-  5) Click "Save List" to save and close the list. It will render in the My Lists Page.
-  6) Feel Free to browse and like books. Any book with -1 likes will be deleted from the shared library.
+  1) Navigate to [Deployed Project V1](https://salty-sierra-46312.herokuapp.com/).
+      - [Deployed Project v2](https://greatreadz.herokuapp.com/).
+  3) Create an account. Email must include an "@" symbol. 
+  4) Search for any book, and click on it to add the book to a shared library on the Home page.
+  5) Click on "Make A Suggestion List" and "Add to Personal List" to create a list tied to your user.
+  6) Click "Save List" to save and close the list. It will render in the My Lists Page.
+  7) Feel Free to browse and like books. Any book with -1 likes will be deleted from the shared library.
 
 ### ***Screenshots:***
 Screenshots of Deployed 1.0
